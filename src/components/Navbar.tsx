@@ -196,7 +196,6 @@ export const Navbar: React.FC = () => {
                 to="/quiz"
                 className="hidden sm:inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-teal-400 hover:from-cyan-400 hover:to-teal-300 text-[#050B14] px-4 py-2 text-xs font-semibold shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_25px_rgba(6,182,212,0.5)] transition-all duration-200 active:scale-[0.98] outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
               >
-                <Sparkles className="h-3.5 w-3.5" />
                 <span>Take Quiz</span>
                 <ChevronRight className="h-3.5 w-3.5" />
               </Link>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   GraduationCap,
   Target,
@@ -8,25 +8,31 @@ import {
   ShieldAlert,
   Mail,
   HeartHandshake,
-  AlertCircle
-} from 'lucide-react';
+  AlertCircle,
+} from "lucide-react";
 
 export const About: React.FC = () => {
   const learningOutcomes = [
-    'Recognize psychological manipulation, false urgency, and social engineering pretexts in messages.',
-    'Distinguish between genuine institutional domains and deceptive typosquatting lookalikes.',
-    'Understand why OTPs, CVVs, and UPI PINs should never be disclosed under any circumstances.',
-    'Assess realistic threat simulations and apply safe protocols before clicking unknown links.',
-    'Respond effectively during an incident by contacting bank hotlines and the national 1930 cybercrime helpline.',
+    "Recognize psychological manipulation, false urgency, and social engineering pretexts in messages.",
+    "Distinguish between genuine institutional domains and deceptive typosquatting lookalikes.",
+    "Understand why OTPs, CVVs, and UPI PINs should never be disclosed under any circumstances.",
+    "Assess realistic threat simulations and apply safe protocols before clicking unknown links.",
+    "Respond effectively during an incident by contacting bank hotlines and the national 1930 cybercrime helpline.",
   ];
 
   const technologies = [
-    { name: 'React 19 & Vite', category: 'Frontend Framework & Bundler' },
-    { name: 'TypeScript', category: 'Type Safety & Application Architecture' },
-    { name: 'Tailwind CSS', category: 'Responsive Cybersecurity UI Styling' },
-    { name: 'Supabase PostgreSQL', category: 'Database, RLS Security & Project Analytics' },
-    { name: 'Lucide React', category: 'Lightweight & Semantic Iconography' },
-    { name: 'ThreeUI Shaders Ready', category: 'Pointer-Reactive Matrix Laser Background' },
+    { name: "React 19 & Vite", category: "Frontend Framework & Bundler" },
+    { name: "TypeScript", category: "Type Safety & Application Architecture" },
+    { name: "Tailwind CSS", category: "Responsive Cybersecurity UI Styling" },
+    {
+      name: "Supabase PostgreSQL",
+      category: "Database, RLS Security & Project Analytics",
+    },
+    { name: "Lucide React", category: "Lightweight & Semantic Iconography" },
+    {
+      name: "ThreeUI Shaders Ready",
+      category: "Pointer-Reactive Matrix Laser Background",
+    },
   ];
 
   return (
@@ -42,7 +48,9 @@ export const About: React.FC = () => {
             About the CyberAware Program
           </h1>
           <p className="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed">
-            A College Extension and Community Engagement Project (CEP) created to build digital defense resilience among students and everyday citizens.
+            A College Extension and Community Engagement Program (CEP) created
+            to build digital defense resilience among students and everyday
+            citizens.
           </p>
         </div>
 
@@ -64,7 +72,10 @@ export const About: React.FC = () => {
                 <span>Project Objective</span>
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                To address the escalating wave of financial fraud, job application deception, and credential theft targeting students and youth through accessible, interactive, and jargon-free education.
+                To address the escalating wave of financial fraud, job
+                application deception, and credential theft targeting students
+                and youth through accessible, interactive, and jargon-free
+                education.
               </p>
             </div>
 
@@ -74,7 +85,9 @@ export const About: React.FC = () => {
                 <span>Community Engagement Scope</span>
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Deployed as a college community extension tool for classroom seminars, student orientations, and community workshops to evaluate and elevate baseline cyber vigilance.
+                Deployed as a college community extension tool for classroom
+                seminars, student orientations, and community workshops to
+                evaluate and elevate baseline cyber vigilance.
               </p>
             </div>
           </div>
@@ -88,7 +101,10 @@ export const About: React.FC = () => {
           </h2>
           <div className="space-y-3">
             {learningOutcomes.map((outcome, idx) => (
-              <div key={idx} className="flex items-start gap-3 text-sm text-slate-300">
+              <div
+                key={idx}
+                className="flex items-start gap-3 text-sm text-slate-300"
+              >
                 <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800/60 text-[11px] font-bold mt-0.5">
                   {idx + 1}
                 </span>
@@ -110,8 +126,12 @@ export const About: React.FC = () => {
                 key={idx}
                 className="rounded-xl border border-slate-800/80 bg-[#060D18] p-3.5 flex flex-col justify-between"
               >
-                <span className="text-sm font-semibold text-white">{tech.name}</span>
-                <span className="text-xs text-slate-400 mt-0.5 font-normal">{tech.category}</span>
+                <span className="text-sm font-semibold text-white">
+                  {tech.name}
+                </span>
+                <span className="text-xs text-slate-400 mt-0.5 font-normal">
+                  {tech.category}
+                </span>
               </div>
             ))}
           </div>
@@ -124,13 +144,26 @@ export const About: React.FC = () => {
             <span>CEP Project Contact</span>
           </h2>
           <p className="text-xs text-slate-400 mb-4 font-normal">
-            For academic inquiries, seminar scheduling, or suggestions regarding this community engagement initiative:
+            For academic inquiries, seminar scheduling, or suggestions regarding
+            this community engagement initiative:
           </p>
           <div className="rounded-xl border border-slate-800 bg-[#060D18] p-4 text-xs text-slate-300 space-y-1.5 font-medium">
-            <div><strong className="text-slate-400">Program:</strong> CyberAware CEP Extension Team</div>
-            <div><strong className="text-slate-400">Department:</strong> Computer Science & Information Security</div>
-            <div><strong className="text-slate-400">Email:</strong> <span className="font-mono text-cyan-300">awareness-cep@college-domain.edu</span></div>
-            <div><strong className="text-slate-400">Academic Year:</strong> 2025–2026</div>
+            <div>
+              <strong className="text-slate-400">Program:</strong> CyberAware - Community Engagement Program
+            </div>
+            <div>
+              <strong className="text-slate-400">Department:</strong> Information Technology
+            </div>
+            <div>
+              <strong className="text-slate-400">Email:</strong>{" "}
+              <span className="font-mono text-cyan-300">
+                mr.prince3650@gmail.com
+              </span>
+            </div>
+            <div>
+              <strong className="text-slate-400">Academic Year:</strong>{" "}
+              2026–2027
+            </div>
           </div>
         </div>
 
@@ -142,7 +175,10 @@ export const About: React.FC = () => {
               Educational & Awareness Disclaimer
             </h3>
             <p className="text-xs text-slate-400 leading-relaxed">
-              This website is created for educational and awareness purposes. It does not replace professional cybersecurity, banking, legal, or law-enforcement advice. No personal banking credentials, passwords, or identification numbers are ever requested or stored.
+              This website is created for educational and awareness purposes. It
+              does not replace professional cybersecurity, banking, legal, or
+              law-enforcement advice. No personal banking credentials,
+              passwords, or identification numbers are ever requested or stored.
             </p>
           </div>
         </div>

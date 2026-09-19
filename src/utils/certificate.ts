@@ -17,49 +17,58 @@ export interface CertificateDetails {
 /**
  * Renders a high-resolution certificate on an HTML5 canvas
  */
-export function generateCertificateCanvas(details: CertificateDetails): HTMLCanvasElement {
+export function generateCertificateCanvas(
+  details: CertificateDetails,
+): HTMLCanvasElement {
   const width = 1600;
   const height = 1100;
-  const canvas = document.createElement('canvas');
+  const canvas = document.createElement("canvas");
   canvas.width = width;
   canvas.height = height;
-  const ctx = canvas.getContext('2d');
-  if (!ctx) throw new Error('Canvas 2D context not available');
+  const ctx = canvas.getContext("2d");
+  if (!ctx) throw new Error("Canvas 2D context not available");
 
   // 1. Background - Deep Cyber Dark Navy
   const bgGrad = ctx.createLinearGradient(0, 0, width, height);
-  bgGrad.addColorStop(0, '#050B14');
-  bgGrad.addColorStop(0.5, '#071222');
-  bgGrad.addColorStop(1, '#0A182F');
+  bgGrad.addColorStop(0, "#050B14");
+  bgGrad.addColorStop(0.5, "#071222");
+  bgGrad.addColorStop(1, "#0A182F");
   ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, width, height);
 
   // Subtle ambient glow circles
   const glow1 = ctx.createRadialGradient(200, 200, 10, 200, 200, 400);
-  glow1.addColorStop(0, 'rgba(6, 182, 212, 0.15)');
-  glow1.addColorStop(1, 'rgba(6, 182, 212, 0)');
+  glow1.addColorStop(0, "rgba(6, 182, 212, 0.15)");
+  glow1.addColorStop(1, "rgba(6, 182, 212, 0)");
   ctx.fillStyle = glow1;
   ctx.fillRect(0, 0, width, height);
 
-  const glow2 = ctx.createRadialGradient(width - 200, height - 200, 10, width - 200, height - 200, 400);
-  glow2.addColorStop(0, 'rgba(16, 185, 129, 0.12)');
-  glow2.addColorStop(1, 'rgba(16, 185, 129, 0)');
+  const glow2 = ctx.createRadialGradient(
+    width - 200,
+    height - 200,
+    10,
+    width - 200,
+    height - 200,
+    400,
+  );
+  glow2.addColorStop(0, "rgba(16, 185, 129, 0.12)");
+  glow2.addColorStop(1, "rgba(16, 185, 129, 0)");
   ctx.fillStyle = glow2;
   ctx.fillRect(0, 0, width, height);
 
   // 2. Outer Border Frame
-  ctx.strokeStyle = 'rgba(6, 182, 212, 0.6)';
+  ctx.strokeStyle = "rgba(6, 182, 212, 0.6)";
   ctx.lineWidth = 4;
   ctx.strokeRect(40, 40, width - 80, height - 80);
 
   // Inner Border Frame
-  ctx.strokeStyle = 'rgba(148, 163, 184, 0.25)';
+  ctx.strokeStyle = "rgba(148, 163, 184, 0.25)";
   ctx.lineWidth = 1.5;
   ctx.strokeRect(55, 55, width - 110, height - 110);
 
   // Corner Accent Brackets
   const cornerLen = 50;
-  ctx.strokeStyle = '#06B6D4';
+  ctx.strokeStyle = "#06B6D4";
   ctx.lineWidth = 5;
 
   // Top Left
@@ -92,41 +101,49 @@ export function generateCertificateCanvas(details: CertificateDetails): HTMLCanv
 
   // 3. Header Badge & Seal
   const centerX = width / 2;
-  ctx.textAlign = 'center';
+  ctx.textAlign = "center";
 
   // Gold / Cyan Seal Emblem at top
   const sealY = 140;
   ctx.beginPath();
   ctx.arc(centerX, sealY, 42, 0, Math.PI * 2);
-  ctx.fillStyle = 'rgba(6, 182, 212, 0.15)';
+  ctx.fillStyle = "rgba(6, 182, 212, 0.15)";
   ctx.fill();
-  ctx.strokeStyle = '#06B6D4';
+  ctx.strokeStyle = "#06B6D4";
   ctx.lineWidth = 3;
   ctx.stroke();
 
   // Inner star/shield representation
-  ctx.fillStyle = '#22D3EE';
-  ctx.font = 'bold 36px sans-serif';
-  ctx.fillText('★', centerX, sealY + 12);
+  ctx.fillStyle = "#22D3EE";
+  ctx.font = "bold 36px sans-serif";
+  ctx.fillText("★", centerX, sealY + 12);
 
   // Institution title
-  ctx.fillStyle = '#22D3EE';
+  ctx.fillStyle = "#22D3EE";
   ctx.font = '700 18px "Plus Jakarta Sans", sans-serif';
-  ctx.letterSpacing = '4px';
-  ctx.fillText('COLLEGE EXTENSION & COMMUNITY ENGAGEMENT PROJECT (CEP)', centerX, 230);
+  ctx.letterSpacing = "4px";
+  ctx.fillText(
+    "COLLEGE EXTENSION & Community Engagement Program (CEP)",
+    centerX,
+    230,
+  );
 
   // Certificate main title
-  ctx.fillStyle = '#FFFFFF';
+  ctx.fillStyle = "#FFFFFF";
   ctx.font = '700 44px "Plus Jakarta Sans", sans-serif';
-  ctx.fillText('Certificate of Cyber Awareness & Participation', centerX, 290);
+  ctx.fillText("Certificate of Cyber Awareness & Participation", centerX, 290);
 
   // Subtitle
-  ctx.fillStyle = '#94A3B8';
+  ctx.fillStyle = "#94A3B8";
   ctx.font = '400 18px "Plus Jakarta Sans", sans-serif';
-  ctx.fillText('This document officially certifies successful participation in the Digital Scam & Fraud Detection Assessment', centerX, 335);
+  ctx.fillText(
+    "This document officially certifies successful participation in the Digital Scam & Fraud Detection Assessment",
+    centerX,
+    335,
+  );
 
   // Divider line
-  ctx.strokeStyle = 'rgba(6, 182, 212, 0.4)';
+  ctx.strokeStyle = "rgba(6, 182, 212, 0.4)";
   ctx.lineWidth = 1.5;
   ctx.beginPath();
   ctx.moveTo(centerX - 350, 370);
@@ -134,40 +151,40 @@ export function generateCertificateCanvas(details: CertificateDetails): HTMLCanv
   ctx.stroke();
 
   // "Proudly presented to"
-  ctx.fillStyle = '#64748B';
+  ctx.fillStyle = "#64748B";
   ctx.font = '500 18px "Plus Jakarta Sans", sans-serif';
-  ctx.fillText('Proudly awarded to', centerX, 420);
+  ctx.fillText("Proudly awarded to", centerX, 420);
 
   // Recipient Name
-  const recipientName = details.name.trim() || 'Verified Participant';
-  ctx.fillStyle = '#38BDF8';
+  const recipientName = details.name.trim() || "Verified Participant";
+  ctx.fillStyle = "#38BDF8";
   ctx.font = '800 54px "Plus Jakarta Sans", sans-serif';
   ctx.fillText(recipientName, centerX, 490);
 
   // Name underline accent
   const nameWidth = ctx.measureText(recipientName).width;
-  ctx.strokeStyle = 'rgba(56, 189, 248, 0.8)';
+  ctx.strokeStyle = "rgba(56, 189, 248, 0.8)";
   ctx.lineWidth = 3;
   ctx.beginPath();
-  ctx.moveTo(centerX - (nameWidth / 2) - 20, 515);
-  ctx.lineTo(centerX + (nameWidth / 2) + 20, 515);
+  ctx.moveTo(centerX - nameWidth / 2 - 20, 515);
+  ctx.lineTo(centerX + nameWidth / 2 + 20, 515);
   ctx.stroke();
 
   // Achievement narrative text
-  ctx.fillStyle = '#CBD5E1';
+  ctx.fillStyle = "#CBD5E1";
   ctx.font = '400 20px "Plus Jakarta Sans", sans-serif';
   ctx.fillText(
-    'has completed the comprehensive evaluation on Phishing, Scam & Cyber Fraud Detection Awareness,',
+    "has completed the comprehensive evaluation on Phishing, Scam & Cyber Fraud Detection Awareness,",
     centerX,
-    575
+    575,
   );
 
-  ctx.fillStyle = '#F8FAFC';
+  ctx.fillStyle = "#F8FAFC";
   ctx.font = '700 22px "Plus Jakarta Sans", sans-serif';
   ctx.fillText(
     `achieving an evaluation score of ${details.percentage}% (${details.score}/${details.totalQuestions} questions correct).`,
     centerX,
-    615
+    615,
   );
 
   // 4. Metadata Boxes (Date, Rating, Reference ID)
@@ -185,9 +202,10 @@ export function generateCertificateCanvas(details: CertificateDetails): HTMLCanv
     boxY,
     boxWidth,
     boxHeight,
-    'PARTICIPATION DATE',
-    details.dateStr || new Date().toLocaleDateString('en-US', { dateStyle: 'long' }),
-    '#E2E8F0'
+    "PARTICIPATION DATE",
+    details.dateStr ||
+      new Date().toLocaleDateString("en-US", { dateStyle: "long" }),
+    "#E2E8F0",
   );
 
   // Box 2: Assessment Rating
@@ -197,9 +215,9 @@ export function generateCertificateCanvas(details: CertificateDetails): HTMLCanv
     boxY,
     boxWidth,
     boxHeight,
-    'ASSESSMENT RATING',
-    details.tierTitle || 'High Cyber Vigilance',
-    '#22D3EE'
+    "ASSESSMENT RATING",
+    details.tierTitle || "High Cyber Vigilance",
+    "#22D3EE",
   );
 
   // Box 3: Verification Reference
@@ -209,15 +227,15 @@ export function generateCertificateCanvas(details: CertificateDetails): HTMLCanv
     boxY,
     boxWidth,
     boxHeight,
-    'VERIFICATION REFERENCE',
-    details.verificationId || 'CEP-SEC-REGISTRY',
-    '#38BDF8',
-    true
+    "VERIFICATION REFERENCE",
+    details.verificationId || "CEP-SEC-REGISTRY",
+    "#38BDF8",
+    true,
   );
 
   // 5. Lower Seal & Signatures
   const footerY = 910;
-  ctx.strokeStyle = 'rgba(148, 163, 184, 0.2)';
+  ctx.strokeStyle = "rgba(148, 163, 184, 0.2)";
   ctx.lineWidth = 1;
   ctx.beginPath();
   ctx.moveTo(120, footerY);
@@ -225,31 +243,43 @@ export function generateCertificateCanvas(details: CertificateDetails): HTMLCanv
   ctx.stroke();
 
   // Left signature
-  ctx.textAlign = 'left';
-  ctx.fillStyle = '#F1F5F9';
+  ctx.textAlign = "left";
+  ctx.fillStyle = "#F1F5F9";
   ctx.font = '600 18px "Plus Jakarta Sans", sans-serif';
-  ctx.fillText('CyberAware Initiative', 140, footerY + 50);
-  ctx.fillStyle = '#64748B';
+  ctx.fillText("CyberAware Initiative", 140, footerY + 50);
+  ctx.fillStyle = "#64748B";
   ctx.font = '400 14px "Plus Jakarta Sans", sans-serif';
-  ctx.fillText('College Extension Program (CEP) • Security Division', 140, footerY + 75);
+  ctx.fillText(
+    "College Extension Program (CEP) • Security Division",
+    140,
+    footerY + 75,
+  );
 
   // Center verified badge
-  ctx.textAlign = 'center';
-  ctx.fillStyle = '#10B981';
+  ctx.textAlign = "center";
+  ctx.fillStyle = "#10B981";
   ctx.font = '700 16px "Plus Jakarta Sans", sans-serif';
-  ctx.fillText('✔ CRYPTOGRAPHICALLY VERIFIED RECORD', centerX, footerY + 50);
-  ctx.fillStyle = '#64748B';
+  ctx.fillText("✔ CRYPTOGRAPHICALLY VERIFIED RECORD", centerX, footerY + 50);
+  ctx.fillStyle = "#64748B";
   ctx.font = '400 13px "Plus Jakarta Sans", sans-serif';
-  ctx.fillText('Direct Record Entry in Project Registry', centerX, footerY + 72);
+  ctx.fillText(
+    "Direct Record Entry in Project Registry",
+    centerX,
+    footerY + 72,
+  );
 
   // Right authority
-  ctx.textAlign = 'right';
-  ctx.fillStyle = '#F1F5F9';
+  ctx.textAlign = "right";
+  ctx.fillStyle = "#F1F5F9";
   ctx.font = '600 18px "Plus Jakarta Sans", sans-serif';
-  ctx.fillText('Official CEP Certification', width - 140, footerY + 50);
-  ctx.fillStyle = '#64748B';
+  ctx.fillText("Official CEP Certification", width - 140, footerY + 50);
+  ctx.fillStyle = "#64748B";
   ctx.font = '400 14px "Plus Jakarta Sans", sans-serif';
-  ctx.fillText('Authorized Student Extension & Public Awareness', width - 140, footerY + 75);
+  ctx.fillText(
+    "Authorized Student Extension & Public Awareness",
+    width - 140,
+    footerY + 75,
+  );
 
   return canvas;
 }
@@ -263,50 +293,54 @@ function drawMetadataBox(
   label: string,
   value: string,
   valueColor: string,
-  isMono: boolean = false
+  isMono: boolean = false,
 ) {
   // Background
-  ctx.fillStyle = 'rgba(8, 18, 32, 0.8)';
+  ctx.fillStyle = "rgba(8, 18, 32, 0.8)";
   ctx.fillRect(x, y, w, h);
 
   // Border
-  ctx.strokeStyle = 'rgba(30, 41, 59, 0.9)';
+  ctx.strokeStyle = "rgba(30, 41, 59, 0.9)";
   ctx.lineWidth = 1.5;
   ctx.strokeRect(x, y, w, h);
 
   // Inner top highlight line
-  ctx.strokeStyle = 'rgba(6, 182, 212, 0.3)';
+  ctx.strokeStyle = "rgba(6, 182, 212, 0.3)";
   ctx.beginPath();
   ctx.moveTo(x, y);
   ctx.lineTo(x + w, y);
   ctx.stroke();
 
   // Label
-  ctx.textAlign = 'center';
-  ctx.fillStyle = '#64748B';
+  ctx.textAlign = "center";
+  ctx.fillStyle = "#64748B";
   ctx.font = '600 12px "Plus Jakarta Sans", sans-serif';
-  ctx.letterSpacing = '1px';
+  ctx.letterSpacing = "1px";
   ctx.fillText(label, x + w / 2, y + 35);
 
   // Value
   ctx.fillStyle = valueColor;
-  ctx.font = isMono ? '600 18px "JetBrains Mono", monospace' : '700 18px "Plus Jakarta Sans", sans-serif';
+  ctx.font = isMono
+    ? '600 18px "JetBrains Mono", monospace'
+    : '700 18px "Plus Jakarta Sans", sans-serif';
   ctx.fillText(value, x + w / 2, y + 75);
 }
 
 /**
  * Downloads the certificate directly as a high-resolution PNG file
  */
-export async function downloadCertificateAsImage(details: CertificateDetails): Promise<boolean> {
+export async function downloadCertificateAsImage(
+  details: CertificateDetails,
+): Promise<boolean> {
   try {
     const canvas = generateCertificateCanvas(details);
-    const dataUrl = canvas.toDataURL('image/png', 1.0);
-    const sanitizedName = (details.name || 'Participant')
-      .replace(/[^a-zA-Z0-9_-]/g, '_')
+    const dataUrl = canvas.toDataURL("image/png", 1.0);
+    const sanitizedName = (details.name || "Participant")
+      .replace(/[^a-zA-Z0-9_-]/g, "_")
       .slice(0, 30);
     const filename = `CyberAware_Certificate_${sanitizedName}.png`;
 
-    const link = document.createElement('a');
+    const link = document.createElement("a");
     link.href = dataUrl;
     link.download = filename;
     document.body.appendChild(link);
@@ -316,7 +350,7 @@ export async function downloadCertificateAsImage(details: CertificateDetails): P
     }, 200);
     return true;
   } catch (err) {
-    console.error('Failed to download certificate image:', err);
+    console.error("Failed to download certificate image:", err);
     return false;
   }
 }
@@ -324,15 +358,17 @@ export async function downloadCertificateAsImage(details: CertificateDetails): P
 /**
  * Prints the certificate with robust iframe-sandbox handling
  */
-export async function printCertificateSafely(details: CertificateDetails): Promise<{ success: boolean; fallbackDownloaded?: boolean }> {
+export async function printCertificateSafely(
+  details: CertificateDetails,
+): Promise<{ success: boolean; fallbackDownloaded?: boolean }> {
   try {
     const canvas = generateCertificateCanvas(details);
-    const dataUrl = canvas.toDataURL('image/png', 1.0);
-    const sanitizedName = details.name || 'Participant';
+    const dataUrl = canvas.toDataURL("image/png", 1.0);
+    const sanitizedName = details.name || "Participant";
 
     // 1. Try opening a clean printable window
     try {
-      const printWindow = window.open('', '_blank');
+      const printWindow = window.open("", "_blank");
       if (printWindow) {
         printWindow.document.write(`
           <!DOCTYPE html>
@@ -433,7 +469,7 @@ export async function printCertificateSafely(details: CertificateDetails): Promi
     await downloadCertificateAsImage(details);
     return { success: true, fallbackDownloaded: true };
   } catch (err) {
-    console.error('Print certificate error:', err);
+    console.error("Print certificate error:", err);
     // Final fallback to direct download
     await downloadCertificateAsImage(details);
     return { success: true, fallbackDownloaded: true };

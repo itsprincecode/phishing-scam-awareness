@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   ShieldCheck,
   User,
@@ -8,20 +8,20 @@ import {
   Clock,
   Award,
   ExternalLink,
-  CheckCircle2
-} from 'lucide-react';
-import { Link } from 'react-router-dom';
+  CheckCircle2,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 import {
   checkEmailAlreadyUsedForQuiz,
-  checkEmailAlreadyUsedForDetection
-} from '../lib/supabase';
-import { getLastParticipant, saveLastParticipant } from '../utils/storage';
+  checkEmailAlreadyUsedForDetection,
+} from "../lib/supabase";
+import { getLastParticipant, saveLastParticipant } from "../utils/storage";
 
 interface ParticipantStartGateProps {
   title: string;
   subtitle: string;
   badgeText: string;
-  assessmentType: 'quiz' | 'detection';
+  assessmentType: "quiz" | "detection";
   buttonLabel: string;
   estimatedTime?: string;
   onProceed: (participant: { name: string; email: string }) => void;
@@ -33,15 +33,17 @@ export const ParticipantStartGate: React.FC<ParticipantStartGateProps> = ({
   badgeText,
   assessmentType,
   buttonLabel,
-  estimatedTime = '5-7 minutes',
+  estimatedTime = "5-7 minutes",
   onProceed,
 }) => {
   const lastParticipant = getLastParticipant();
-  const [name, setName] = useState(lastParticipant?.name || '');
-  const [email, setEmail] = useState('');
+  const [name, setName] = useState(lastParticipant?.name || "");
+  const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [existingAttemptDate, setExistingAttemptDate] = useState<string | null>(null);
+  const [existingAttemptDate, setExistingAttemptDate] = useState<string | null>(
+    null,
+  );
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,13 +54,13 @@ export const ParticipantStartGate: React.FC<ParticipantStartGateProps> = ({
     const cleanEmail = email.trim().toLowerCase();
 
     if (!cleanName) {
-      setErrorMessage('Please enter your full name to begin.');
+      setErrorMessage("Please enter your full name to begin.");
       return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!cleanEmail || !emailRegex.test(cleanEmail)) {
-      setErrorMessage('Please enter a valid email address.');
+      setErrorMessage("Please enter a valid email address.");
       return;
     }
 
@@ -67,7 +69,7 @@ export const ParticipantStartGate: React.FC<ParticipantStartGateProps> = ({
     try {
       // Check if this email is already registered and has completed this assessment
       let checkResult;
-      if (assessmentType === 'quiz') {
+      if (assessmentType === "quiz") {
         checkResult = await checkEmailAlreadyUsedForQuiz(cleanEmail);
       } else {
         checkResult = await checkEmailAlreadyUsedForDetection(cleanEmail);
@@ -75,13 +77,13 @@ export const ParticipantStartGate: React.FC<ParticipantStartGateProps> = ({
 
       if (checkResult.alreadyUsed) {
         setErrorMessage(
-          'This email address has already been used. Each participant can only attempt this assessment once. Please enter another email address.'
+          "This email address has already been used. Each participant can only attempt this assessment once. Please enter another email address.",
         );
         if (checkResult.existingRecord?.completed_at) {
           try {
-            const formatted = new Intl.DateTimeFormat('en-US', {
-              dateStyle: 'medium',
-              timeStyle: 'short',
+            const formatted = new Intl.DateTimeFormat("en-US", {
+              dateStyle: "medium",
+              timeStyle: "short",
             }).format(new Date(checkResult.existingRecord.completed_at));
             setExistingAttemptDate(formatted);
           } catch {
@@ -96,7 +98,7 @@ export const ParticipantStartGate: React.FC<ParticipantStartGateProps> = ({
       saveLastParticipant({ name: cleanName, email: cleanEmail });
       onProceed({ name: cleanName, email: cleanEmail });
     } catch (err) {
-      console.error('Participant validation failed:', err);
+      console.error("Participant validation failed:", err);
       // In case of unexpected network error, allow proceed with local fallback
       saveLastParticipant({ name: cleanName, email: cleanEmail });
       onProceed({ name: cleanName, email: cleanEmail });
@@ -136,13 +138,16 @@ export const ParticipantStartGate: React.FC<ParticipantStartGateProps> = ({
           <div className="flex items-start gap-2">
             <CheckCircle2 className="h-4 w-4 text-cyan-400 shrink-0 mt-0.5" />
             <span>
-              <strong>One Attempt Policy:</strong> To ensure accurate awareness measurement, each participant email can only be registered once.
+              <strong>One Attempt Policy:</strong> To ensure accurate awareness
+              measurement, each participant email can only be registered once.
             </span>
           </div>
           <div className="flex items-start gap-2">
             <Award className="h-4 w-4 text-cyan-400 shrink-0 mt-0.5" />
             <span>
-              Your full name will be printed on your official <strong>Cyber Awareness Certificate</strong> and your scores will be accessible anytime via the Results portal.
+              Your full name will be printed on your official{" "}
+              <strong>Cyber Awareness Certificate</strong> and your scores will
+              be accessible anytime via the Results portal.
             </span>
           </div>
         </div>
@@ -164,7 +169,7 @@ export const ParticipantStartGate: React.FC<ParticipantStartGateProps> = ({
                 id="start-participant-name"
                 type="text"
                 required
-                placeholder="e.g. Alex Kumar"
+                placeholder="e.g. Prince Maurya"
                 value={name}
                 onChange={(e) => {
                   setName(e.target.value);
@@ -180,7 +185,8 @@ export const ParticipantStartGate: React.FC<ParticipantStartGateProps> = ({
               htmlFor="start-participant-email"
               className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5"
             >
-              College / Personal Email Address <span className="text-cyan-400">*</span>
+              College / Personal Email Address{" "}
+              <span className="text-cyan-400">*</span>
             </label>
             <div className="relative">
               <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-500">
@@ -210,7 +216,8 @@ export const ParticipantStartGate: React.FC<ParticipantStartGateProps> = ({
                   <p className="font-semibold text-rose-200">{errorMessage}</p>
                   {existingAttemptDate && (
                     <p className="text-rose-300/80 text-[11px]">
-                      Previous attempt recorded on: <strong>{existingAttemptDate}</strong>
+                      Previous attempt recorded on:{" "}
+                      <strong>{existingAttemptDate}</strong>
                     </p>
                   )}
                 </div>

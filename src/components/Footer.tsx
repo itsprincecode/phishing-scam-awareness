@@ -1,6 +1,12 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { ShieldCheck, PhoneCall, ExternalLink, AlertCircle, HeartHandshake } from 'lucide-react';
+import React from "react";
+import { Link } from "react-router-dom";
+import {
+  ShieldCheck,
+  PhoneCall,
+  ExternalLink,
+  AlertCircle,
+  HeartHandshake,
+} from "lucide-react";
 
 export const Footer: React.FC = () => {
   return (
@@ -21,7 +27,9 @@ export const Footer: React.FC = () => {
               </span>
             </div>
             <p className="text-sm text-slate-300 leading-relaxed max-w-md">
-              A College Extension & Community Engagement Project (CEP) dedicated to educating students and citizens on identifying phishing emails, scam messages, digital fraud, and social engineering threats.
+              A College Extension & Community Engagement Program (CEP) dedicated
+              to educating students and citizens on identifying phishing emails,
+              scam messages, digital fraud, and social engineering threats.
             </p>
             <div className="inline-flex items-center gap-2 rounded-full border border-cyan-800/60 bg-cyan-950/50 px-3.5 py-1 text-xs text-cyan-300 font-medium">
               <HeartHandshake className="h-3.5 w-3.5 text-cyan-400" />
@@ -36,37 +44,58 @@ export const Footer: React.FC = () => {
             </h3>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link to="/" className="text-slate-300 hover:text-cyan-400 transition-colors font-medium">
+                <Link
+                  to="/"
+                  className="text-slate-300 hover:text-cyan-400 transition-colors font-medium"
+                >
                   Home Overview
                 </Link>
               </li>
               <li>
-                <Link to="/learn" className="text-slate-300 hover:text-cyan-400 transition-colors font-medium">
+                <Link
+                  to="/learn"
+                  className="text-slate-300 hover:text-cyan-400 transition-colors font-medium"
+                >
                   Learn Topics
                 </Link>
               </li>
               <li>
-                <Link to="/detect" className="text-slate-300 hover:text-cyan-400 transition-colors font-medium">
+                <Link
+                  to="/detect"
+                  className="text-slate-300 hover:text-cyan-400 transition-colors font-medium"
+                >
                   Phishing Simulator (Detect)
                 </Link>
               </li>
               <li>
-                <Link to="/quiz" className="text-slate-300 hover:text-cyan-400 transition-colors font-medium">
+                <Link
+                  to="/quiz"
+                  className="text-slate-300 hover:text-cyan-400 transition-colors font-medium"
+                >
                   Awareness Quiz
                 </Link>
               </li>
               <li>
-                <Link to="/results" className="text-slate-300 hover:text-cyan-400 transition-colors font-medium">
+                <Link
+                  to="/results"
+                  className="text-slate-300 hover:text-cyan-400 transition-colors font-medium"
+                >
                   Check Participant Results
                 </Link>
               </li>
               <li>
-                <Link to="/safety" className="text-slate-300 hover:text-cyan-400 transition-colors font-medium">
+                <Link
+                  to="/safety"
+                  className="text-slate-300 hover:text-cyan-400 transition-colors font-medium"
+                >
                   Emergency Safety Guide
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-slate-300 hover:text-cyan-400 transition-colors font-medium">
+                <Link
+                  to="/about"
+                  className="text-slate-300 hover:text-cyan-400 transition-colors font-medium"
+                >
                   About CEP Project
                 </Link>
               </li>
@@ -87,7 +116,9 @@ export const Footer: React.FC = () => {
                 <div className="text-2xl font-extrabold text-white tracking-wider">
                   Dial 1930
                 </div>
-                <p className="text-xs text-slate-300 mt-1 font-normal">Toll-free across India • 24x7 Emergency Assistance</p>
+                <p className="text-xs text-slate-300 mt-1 font-normal">
+                  Toll-free across India • 24x7 Emergency Assistance
+                </p>
               </div>
 
               <a
@@ -96,7 +127,10 @@ export const Footer: React.FC = () => {
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition-colors p-1"
               >
-                <span>National Portal: <span className="font-mono">cybercrime.gov.in</span></span>
+                <span>
+                  National Portal:{" "}
+                  <span className="font-mono">cybercrime.gov.in</span>
+                </span>
                 <ExternalLink className="h-3.5 w-3.5" />
               </a>
             </div>
@@ -108,11 +142,20 @@ export const Footer: React.FC = () => {
           <div className="flex items-start gap-2.5 max-w-2xl">
             <AlertCircle className="h-4 w-4 text-cyan-400 shrink-0 mt-0.5" />
             <p className="leading-relaxed">
-              <strong className="text-white font-semibold">Educational Disclaimer:</strong> This platform is created strictly for academic, educational, and public awareness purposes under a College Extension & Community Engagement Project (CEP). It does not replace professional cybersecurity, banking, legal, or law-enforcement advice. No financial credentials or private secrets are ever collected.
+              <strong className="text-white font-semibold">
+                Educational Disclaimer:
+              </strong>{" "}
+              This platform is created strictly for academic, educational, and
+              public awareness purposes under a College Extension & Community
+              Engagement Program (CEP). It does not replace professional
+              cybersecurity, banking, legal, or law-enforcement advice. No
+              financial credentials or private secrets are ever collected.
             </p>
           </div>
           <div className="text-right shrink-0 text-slate-400">
-            <p>© {new Date().getFullYear()} CyberAware CEP. All rights reserved.</p>
+            <p>
+              © {new Date().getFullYear()} CyberAware CEP Developed By Prince Maurya 
+            </p>
           </div>
         </div>
       </div>
