@@ -123,7 +123,7 @@ export function generateCertificateCanvas(
   ctx.font = '700 18px "Plus Jakarta Sans", sans-serif';
   ctx.letterSpacing = "4px";
   ctx.fillText(
-    "COLLEGE EXTENSION & Community Engagement Program (CEP)",
+    "Community Engagement Program (CEP)",
     centerX,
     230,
   );
@@ -250,7 +250,7 @@ export function generateCertificateCanvas(
   ctx.fillStyle = "#64748B";
   ctx.font = '400 14px "Plus Jakarta Sans", sans-serif';
   ctx.fillText(
-    "College Extension Program (CEP) • Security Division",
+    "Community Engagement Program (CEP) • Security Division",
     140,
     footerY + 75,
   );
