@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    color-scheme: dark;
+    scroll-behavior: smooth;
+    background-color: #050B14;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #050B14;
+    color: #F1F5F9;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: -0.011em;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Global Typography Hierarchy */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-weight: 800;
+  }
+
+  h2 {
+    font-weight: 700;
+  }
+
+  h3 {
+    font-weight: 600;
+  }
+
+  h4, h5, h6 {
+    font-weight: 600;
+  }
+
+  p {
+    line-height: 1.625;
+    font-weight: 400;
+  }
+
+  button, input, select, textarea {
+    font-family: var(--font-sans);
+  }
+
+  code, pre, kbd, samp, .font-mono {
+    font-family: var(--font-mono);
+    letter-spacing: -0.015em;
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050B14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1E293B;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0EA5E9;
+}
+
+@media print {
+  @page {
+    size: landscape;
+    margin: 8mm;
+  }
+
+  body {
+    background: #FFFFFF !important;
+    color: #0F172A !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  nav,
+  footer,
+  form,
+  button,
+  .print\:hidden,
+  #quiz-curriculum-information,
+  #threat-breakdown,
+  #cep-metrics {
+    display: none !important;
+  }
+
+  #official-certificate {
+    background: #FFFFFF !important;
+    color: #0F172A !important;
+    border: 2px solid #0F172A !important;
+    box-shadow: none !important;
+    page-break-inside: avoid !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+  }
+}

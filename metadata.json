@@ -1,0 +1,6 @@
+{
+  "name": "CyberAware",
+  "description": "Phishing, Scam & Fraud Detection Awareness Program - An educational platform to recognize phishing, online scams, and digital fraud with interactive quizzes and scenarios.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
