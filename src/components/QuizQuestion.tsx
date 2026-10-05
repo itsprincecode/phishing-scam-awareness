@@ -24,20 +24,20 @@ export const QuizQuestion: React.FC<QuizQuestionProps> = ({
   return (
     <div
       id={`quiz-question-${question.id}`}
-      className="rounded-2xl border border-slate-800 bg-[#0A1424] p-6 sm:p-8 shadow-2xl shadow-cyan-950/20"
+      className="rounded-2xl border border-white/10 bg-[#0F150E] p-6 sm:p-8 shadow-2xl"
     >
       {/* Category badge and question number */}
       <div className="flex items-center justify-between gap-2 mb-4">
-        <span className="text-[11px] font-semibold uppercase tracking-wider text-cyan-400 bg-cyan-950/80 px-2.5 py-1 rounded-full border border-cyan-800/40">
+        <span className="text-[11px] font-bold uppercase tracking-wider text-[#B4F437] bg-[#162013] px-3 py-1 rounded-md border border-[#B4F437]/30">
           {question.topic}
         </span>
-        <span className="text-xs text-slate-400 font-medium">
+        <span className="text-xs text-neutral-400 font-medium">
           Question {questionIndex + 1} of {totalQuestions}
         </span>
       </div>
 
       {/* Main Question Text */}
-      <h2 className="text-lg sm:text-xl font-semibold text-white leading-relaxed tracking-tight mb-6">
+      <h2 className="text-lg sm:text-xl font-bold text-white leading-relaxed tracking-tight mb-6">
         {question.question}
       </h2>
 
@@ -49,22 +49,22 @@ export const QuizQuestion: React.FC<QuizQuestionProps> = ({
           const letter = letters[idx] || String(idx + 1);
 
           // State styling
-          let borderClass = 'border-slate-800 hover:border-slate-600 bg-[#060D18]/80 text-slate-200';
-          let letterBg = 'bg-slate-800 text-slate-300 font-semibold';
+          let borderClass = 'border-white/10 hover:border-white/20 bg-[#080C07] text-neutral-200';
+          let letterBg = 'bg-[#182216] text-neutral-300 font-bold';
 
           if (showExplanation) {
             if (isCorrect) {
-              borderClass = 'border-emerald-500/80 bg-emerald-950/30 text-emerald-200 shadow-[0_0_12px_rgba(16,185,129,0.15)]';
-              letterBg = 'bg-emerald-500 text-[#050B14] font-bold';
+              borderClass = 'border-[#B4F437] bg-[#141C11] text-[#B4F437] shadow-[0_0_15px_rgba(180,244,55,0.2)] font-semibold';
+              letterBg = 'bg-[#B4F437] text-[#080C07] font-bold';
             } else if (isSelected && !isCorrect) {
               borderClass = 'border-red-500/80 bg-red-950/30 text-red-200 shadow-[0_0_12px_rgba(239,68,68,0.15)]';
               letterBg = 'bg-red-500 text-white font-bold';
             } else {
-              borderClass = 'border-slate-800/60 bg-[#060D18]/40 text-slate-500 opacity-60';
+              borderClass = 'border-white/5 bg-[#080C07]/40 text-neutral-500 opacity-60';
             }
           } else if (isSelected) {
-            borderClass = 'border-cyan-400 bg-cyan-950/50 text-cyan-200 shadow-[0_0_15px_rgba(6,182,212,0.18)]';
-            letterBg = 'bg-cyan-400 text-[#050B14] font-bold';
+            borderClass = 'border-[#B4F437] bg-[#162214] text-white shadow-[0_0_15px_rgba(180,244,55,0.2)] font-medium';
+            letterBg = 'bg-[#B4F437] text-[#080C07] font-bold';
           }
 
           return (
@@ -75,8 +75,8 @@ export const QuizQuestion: React.FC<QuizQuestionProps> = ({
               aria-checked={isSelected}
               disabled={showExplanation}
               onClick={() => onSelectOption(idx)}
-              className={`w-full text-left p-4 rounded-xl border transition-all duration-150 flex items-start gap-3.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${borderClass} ${
-                !showExplanation ? 'hover:bg-slate-800/30 active:scale-[0.99]' : 'cursor-default'
+              className={`w-full text-left p-4 rounded-xl border transition-all duration-150 flex items-start gap-3.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B4F437] ${borderClass} ${
+                !showExplanation ? 'hover:bg-[#121A10] active:scale-[0.99]' : 'cursor-default'
               }`}
             >
               <div
@@ -85,19 +85,19 @@ export const QuizQuestion: React.FC<QuizQuestionProps> = ({
                 {letter}
               </div>
 
-              <div className="flex-1 text-sm pt-0.5 leading-relaxed font-medium">
+              <div className="flex-1 text-sm pt-0.5 leading-relaxed font-normal">
                 {option}
               </div>
 
               {showExplanation && (
                 <div className="shrink-0 pt-0.5">
                   {isCorrect ? (
-                    <span className="inline-flex items-center gap-1 text-xs text-emerald-400 font-semibold">
+                    <span className="inline-flex items-center gap-1 text-xs text-[#B4F437] font-bold">
                       <Check className="h-4 w-4" />
                       <span className="sr-only">Correct</span>
                     </span>
                   ) : isSelected ? (
-                    <span className="inline-flex items-center gap-1 text-xs text-red-400 font-semibold">
+                    <span className="inline-flex items-center gap-1 text-xs text-red-400 font-bold">
                       <X className="h-4 w-4" />
                       <span className="sr-only">Incorrect</span>
                     </span>
@@ -111,12 +111,12 @@ export const QuizQuestion: React.FC<QuizQuestionProps> = ({
 
       {/* Explanation Box when showing answer */}
       {showExplanation && (
-        <div className="mt-6 rounded-xl border border-cyan-900/40 bg-cyan-950/20 p-4 animate-in fade-in duration-300">
-          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-cyan-400 mb-1.5">
+        <div className="mt-6 rounded-xl border border-[#B4F437]/30 bg-[#121A10] p-4 animate-in fade-in duration-300">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#B4F437] mb-1.5">
             <Info className="h-4 w-4" />
             <span>Why this answer is correct</span>
           </div>
-          <p className="text-sm text-slate-300 leading-relaxed">
+          <p className="text-sm text-neutral-300 leading-relaxed font-normal">
             {question.explanation}
           </p>
         </div>

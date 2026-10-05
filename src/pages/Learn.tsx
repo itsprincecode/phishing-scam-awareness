@@ -37,24 +37,24 @@ export const Learn: React.FC = () => {
   });
 
   return (
-    <div className="relative z-10 py-10 md:py-16">
+    <div className="relative z-10 py-12 md:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="max-w-3xl mb-10">
-          <div className="inline-flex items-center gap-2 rounded-full border border-cyan-800/40 bg-cyan-950/30 px-3 py-1 text-xs font-semibold text-cyan-300 mb-3">
+        <div className="max-w-3xl mb-12">
+          <div className="inline-flex items-center gap-2 rounded-md border border-[#B4F437]/30 bg-[#162013] px-3 py-1 text-xs font-bold text-[#B4F437] mb-3">
             <BookOpen className="h-3.5 w-3.5" />
             <span>Cybersecurity Knowledge Hub</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
             Learn Cyber Threat Patterns
           </h1>
-          <p className="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed">
-            Understand how modern digital fraudsters, impersonators, and phishing syndicates operate. Study the anatomy of attacks, common warning signs, and defensive safeguards.
+          <p className="mt-3 text-base sm:text-lg text-neutral-200 leading-relaxed font-normal">
+            Understand how modern digital fraudsters, impersonators, and phishing syndicates operate. Study attack anatomies, common warning signs, and defensive safeguards.
           </p>
         </div>
 
         {/* Filter and Search controls */}
-        <div className="mb-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-slate-800/80 pb-6">
+        <div className="mb-10 flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-white/10 pb-6">
           {/* Category Tabs */}
           <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
             {categories.map((cat) => (
@@ -62,10 +62,10 @@ export const Learn: React.FC = () => {
                 key={cat.id}
                 type="button"
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-colors outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+                className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all outline-none focus-visible:ring-2 focus-visible:ring-[#B4F437] ${
                   selectedCategory === cat.id
-                    ? 'bg-cyan-500 text-[#050B14] shadow-sm shadow-cyan-500/20'
-                    : 'bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:bg-slate-800'
+                    ? 'bg-[#B4F437] text-[#080C07] shadow-sm shadow-[#B4F437]/20'
+                    : 'bg-[#121811] border border-white/10 text-neutral-300 hover:text-white hover:bg-[#182216]'
                 }`}
               >
                 {cat.label}
@@ -75,13 +75,13 @@ export const Learn: React.FC = () => {
 
           {/* Search Input */}
           <div className="relative w-full sm:w-72">
-            <Search className="absolute left-3 top-2.5 h-4 w-4 text-slate-500" />
+            <Search className="absolute left-3 top-2.5 h-4 w-4 text-neutral-500" />
             <input
               type="text"
               placeholder="Search threat topics..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full rounded-lg border border-slate-800 bg-[#07111F] pl-9 pr-3.5 py-1.5 text-xs text-white placeholder-slate-500 focus:border-cyan-400 focus:outline-none focus:ring-1 focus:ring-cyan-400"
+              className="w-full rounded-lg border border-white/10 bg-[#0F150E] pl-9 pr-3.5 py-2 text-xs text-white placeholder-neutral-500 focus:border-[#B4F437] focus:outline-none focus:ring-1 focus:ring-[#B4F437] font-normal"
             />
           </div>
         </div>
@@ -94,17 +94,17 @@ export const Learn: React.FC = () => {
         </div>
 
         {filteredTopics.length === 0 && (
-          <div className="text-center py-16 rounded-2xl border border-slate-800 bg-[#081220] p-8">
-            <Shield className="h-10 w-10 text-slate-500 mx-auto mb-3" />
-            <p className="text-base font-semibold text-white">No matching topics found</p>
-            <p className="text-xs text-slate-400 mt-1">Try another search keyword or clear filters.</p>
+          <div className="text-center py-16 rounded-2xl border border-white/10 bg-[#0F150E] p-8">
+            <Shield className="h-10 w-10 text-neutral-500 mx-auto mb-3" />
+            <p className="text-base font-bold text-white">No matching topics found</p>
+            <p className="text-xs text-neutral-400 mt-1">Try another search keyword or clear filters.</p>
             <button
               type="button"
               onClick={() => {
                 setSearchQuery('');
                 setSelectedCategory('all');
               }}
-              className="mt-4 px-4 py-2 rounded-lg bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 text-xs font-semibold hover:bg-cyan-500/30"
+              className="mt-4 px-4 py-2 rounded-lg bg-[#B4F437]/20 border border-[#B4F437]/40 text-[#B4F437] text-xs font-bold hover:bg-[#B4F437]/30"
             >
               Reset Filters
             </button>
@@ -112,18 +112,18 @@ export const Learn: React.FC = () => {
         )}
 
         {/* Interconnected Link to Next Module */}
-        <div className="mt-14 rounded-2xl border border-slate-800 bg-[#081220] p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-16 rounded-2xl border border-white/10 bg-[#0F150E] p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl">
           <div>
-            <h3 className="text-base font-bold text-white">
+            <h3 className="text-lg font-bold text-white">
               Ready to test your detection instincts?
             </h3>
-            <p className="text-xs text-slate-400 mt-1">
+            <p className="text-xs sm:text-sm text-neutral-400 mt-1 font-normal">
               Apply what you've learned in our interactive Phishing & Scam Simulator.
             </p>
           </div>
           <Link
             to="/detect"
-            className="inline-flex items-center gap-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-[#050B14] px-5 py-2.5 text-xs font-semibold transition-all shadow-md shadow-cyan-950 shrink-0"
+            className="inline-flex items-center gap-2 rounded-lg bg-[#B4F437] hover:bg-[#C6F756] text-[#080C07] px-6 py-3 text-xs sm:text-sm font-bold transition-all shadow-[0_0_20px_rgba(180,244,55,0.25)] shrink-0"
           >
             <span>Try Detection Simulator</span>
             <ArrowRight className="h-4 w-4" />

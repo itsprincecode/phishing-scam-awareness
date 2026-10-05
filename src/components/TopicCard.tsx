@@ -32,40 +32,40 @@ const iconRegistry: Record<string, React.ElementType> = {
   Share2,
 };
 
-export const TopicCard: React.FC<TopicCardProps> = ({ topic, index }) => {
+export const TopicCard: React.FC<TopicCardProps> = ({ topic }) => {
   const Icon = iconRegistry[topic.iconName] || AlertTriangle;
 
   return (
     <Link
       id={`topic-card-${topic.id}`}
       to={`/learn/${topic.id}`}
-      className="group relative flex flex-col justify-between rounded-xl border border-slate-800 bg-[#08101E]/90 p-5 transition-all duration-200 hover:border-cyan-500/50 hover:bg-[#0A1628] hover:-translate-y-1 hover:shadow-lg hover:shadow-cyan-950/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+      className="group relative flex flex-col justify-between rounded-2xl border border-white/10 bg-[#0F150E] p-6 transition-all duration-200 hover:border-[#B4F437]/50 hover:bg-[#131B11] hover:-translate-y-1 hover:shadow-xl hover:shadow-[#B4F437]/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B4F437]"
     >
       <div>
-        <div className="flex items-center justify-between gap-2 mb-3.5">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-950/80 border border-cyan-800/40 text-cyan-400 group-hover:text-cyan-300 group-hover:border-cyan-500/50 transition-colors">
+        <div className="flex items-center justify-between gap-2 mb-4">
+          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#151E13] border border-white/10 text-[#B4F437] group-hover:text-[#B4F437] group-hover:border-[#B4F437]/50 transition-colors">
             <Icon className="h-5 w-5" />
           </div>
-          <div className="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
-            <Clock className="h-3.5 w-3.5 text-slate-400" />
+          <div className="flex items-center gap-1.5 text-xs text-neutral-400 font-medium">
+            <Clock className="h-3.5 w-3.5 text-neutral-400" />
             <span>{topic.readTime}</span>
           </div>
         </div>
 
-        <div className="text-[11px] font-semibold uppercase tracking-wider text-cyan-400/90 mb-1">
+        <div className="text-[11px] font-bold uppercase tracking-wider text-[#B4F437] mb-1.5">
           {topic.category}
         </div>
 
-        <h3 className="text-base font-semibold text-white group-hover:text-cyan-200 transition-colors">
+        <h3 className="text-lg font-bold text-white group-hover:text-[#B4F437] transition-colors">
           {topic.title}
         </h3>
 
-        <p className="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed line-clamp-2">
+        <p className="mt-2 text-sm text-neutral-200 leading-relaxed line-clamp-2 font-normal">
           {topic.shortDesc}
         </p>
       </div>
 
-      <div className="mt-4 pt-3 border-t border-slate-800/60 flex items-center justify-between text-xs font-semibold text-slate-400 group-hover:text-cyan-300 transition-colors">
+      <div className="mt-5 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-bold text-neutral-400 group-hover:text-[#B4F437] transition-colors">
         <span>Read Guide</span>
         <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
       </div>

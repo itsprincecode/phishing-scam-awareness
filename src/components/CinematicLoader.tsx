@@ -48,7 +48,7 @@ export function CinematicLoader() {
             filter: 'blur(10px)',
             transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
           }}
-          className="fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-[#040812] select-none pointer-events-auto overflow-hidden cursor-default"
+          className="fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-[#080C07] select-none pointer-events-auto overflow-hidden cursor-default"
         >
           {/* Ambient Cinematic Horizon Light Beam */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -56,16 +56,16 @@ export function CinematicLoader() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: [0.2, 0.38, 0.25], scale: [0.95, 1.05, 1] }}
               transition={{ duration: 2.4, ease: 'easeInOut', repeat: Infinity, repeatType: 'reverse' }}
-              className="w-[500px] sm:w-[750px] h-[250px] bg-[radial-gradient(ellipse_at_center,_rgba(6,182,212,0.12)_0%,_rgba(6,182,212,0.03)_45%,_transparent_70%)] blur-3xl"
+              className="w-[500px] sm:w-[750px] h-[250px] bg-[radial-gradient(ellipse_at_center,_rgba(180,244,55,0.14)_0%,_rgba(180,244,55,0.03)_45%,_transparent_70%)] blur-3xl"
             />
           </div>
 
           {/* Anamorphic Light Streak */}
           <motion.div
             initial={{ opacity: 0, scaleX: 0 }}
-            animate={{ opacity: [0, 0.22, 0.12], scaleX: [0.2, 1, 0.9] }}
+            animate={{ opacity: [0, 0.25, 0.12], scaleX: [0.2, 1, 0.9] }}
             transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl h-[1px] bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent pointer-events-none"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl h-[1px] bg-gradient-to-r from-transparent via-[#B4F437]/30 to-transparent pointer-events-none"
           />
 
           {/* Main Cinematic Content: Website Name & Modern Loading Animation */}
@@ -81,7 +81,7 @@ export function CinematicLoader() {
                 <span className="text-white drop-shadow-[0_2px_12px_rgba(255,255,255,0.25)]">
                   Cyber
                 </span>
-                <span className="text-cyan-400 drop-shadow-[0_0_30px_rgba(6,182,212,0.7)]">
+                <span className="text-[#B4F437] drop-shadow-[0_0_30px_rgba(180,244,55,0.7)]">
                   Aware
                 </span>
               </h1>
@@ -108,10 +108,10 @@ export function CinematicLoader() {
               className="mt-8 flex flex-col items-center"
             >
               {/* Ultra-slim laser progress track */}
-              <div className="relative w-48 sm:w-64 md:w-72 h-[2px] bg-slate-800/80 rounded-full overflow-hidden shadow-[inset_0_1px_2px_rgba(0,0,0,0.8)]">
+              <div className="relative w-48 sm:w-64 md:w-72 h-[2px] bg-neutral-900 rounded-full overflow-hidden shadow-[inset_0_1px_2px_rgba(0,0,0,0.8)]">
                 {/* Active progress fill */}
                 <motion.div
-                  className="h-full bg-gradient-to-r from-cyan-500 via-teal-300 to-cyan-400 shadow-[0_0_12px_rgba(6,182,212,0.9)]"
+                  className="h-full bg-gradient-to-r from-lime-500 via-[#B4F437] to-emerald-400 shadow-[0_0_12px_rgba(180,244,55,0.9)]"
                   style={{ width: `${progress}%` }}
                   transition={{ ease: 'linear' }}
                 />
@@ -131,7 +131,7 @@ export function CinematicLoader() {
 
               {/* Soft ambient ground glow reflecting the progress bar */}
               <div
-                className="w-32 sm:w-44 h-2 mt-1 bg-cyan-500/20 blur-md rounded-full transition-opacity duration-300"
+                className="w-32 sm:w-44 h-2 mt-1 bg-[#B4F437]/20 blur-md rounded-full transition-opacity duration-300"
                 style={{ opacity: progress > 10 ? 0.8 : 0.2 }}
               />
             </motion.div>

@@ -163,7 +163,7 @@ export const ThreeBackground: React.FC<ThreeBackgroundProps> = ({
       // 1. Softened High-Tech Cyber Grid
       const gridSize = 72;
       ctx.lineWidth = 0.5;
-      ctx.strokeStyle = 'rgba(6, 182, 212, 0.035)';
+      ctx.strokeStyle = 'rgba(180, 244, 55, 0.03)';
       ctx.beginPath();
       for (let x = 0; x < width; x += gridSize) {
         ctx.moveTo(x, 0);
@@ -178,14 +178,14 @@ export const ThreeBackground: React.FC<ThreeBackgroundProps> = ({
       // 2. Soft radar sweep scan line
       if (scanY < height) {
         const scanGrad = ctx.createLinearGradient(0, scanY - 60, 0, scanY);
-        scanGrad.addColorStop(0, 'rgba(6, 182, 212, 0)');
-        scanGrad.addColorStop(0.85, 'rgba(6, 182, 212, 0.02)');
-        scanGrad.addColorStop(1, 'rgba(6, 182, 212, 0.06)');
+        scanGrad.addColorStop(0, 'rgba(180, 244, 55, 0)');
+        scanGrad.addColorStop(0.85, 'rgba(180, 244, 55, 0.018)');
+        scanGrad.addColorStop(1, 'rgba(180, 244, 55, 0.05)');
         ctx.fillStyle = scanGrad;
         ctx.fillRect(0, scanY - 60, width, 60);
 
         ctx.beginPath();
-        ctx.strokeStyle = 'rgba(56, 189, 248, 0.14)';
+        ctx.strokeStyle = 'rgba(180, 244, 55, 0.12)';
         ctx.lineWidth = 0.8;
         ctx.moveTo(0, scanY);
         ctx.lineTo(width, scanY);
@@ -214,7 +214,7 @@ export const ThreeBackground: React.FC<ThreeBackgroundProps> = ({
           if (mdist < 160) {
             const mFactor = (1 - mdist / 160) * 0.3;
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(56, 189, 248, ${mFactor * 0.4})`;
+            ctx.strokeStyle = `rgba(180, 244, 55, ${mFactor * 0.4})`;
             ctx.lineWidth = 0.8;
             ctx.moveTo(node.x, node.y);
             ctx.lineTo(mouse.x, mouse.y);
@@ -233,9 +233,9 @@ export const ThreeBackground: React.FC<ThreeBackgroundProps> = ({
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < maxDist) {
-            const lineAlpha = (1 - dist / maxDist) * 0.22;
+            const lineAlpha = (1 - dist / maxDist) * 0.2;
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(${node.hue === 190 ? '6, 182, 212' : '20, 184, 166'}, ${lineAlpha})`;
+            ctx.strokeStyle = `rgba(180, 244, 55, ${lineAlpha})`;
             ctx.lineWidth = 0.75;
             ctx.moveTo(node.x, node.y);
             ctx.lineTo(other.x, other.y);
@@ -258,7 +258,7 @@ export const ThreeBackground: React.FC<ThreeBackgroundProps> = ({
           const ringRadius = node.size * 2.8 + Math.sin(time * 1.5 + node.ringPhase) * 4;
           ctx.beginPath();
           ctx.arc(node.x, node.y, Math.max(ringRadius, node.size + 1), 0, Math.PI * 2);
-          ctx.strokeStyle = `rgba(6, 182, 212, ${currentAlpha * 0.22})`;
+          ctx.strokeStyle = `rgba(180, 244, 55, ${currentAlpha * 0.22})`;
           ctx.lineWidth = 0.75;
           ctx.stroke();
         }
@@ -266,8 +266,8 @@ export const ThreeBackground: React.FC<ThreeBackgroundProps> = ({
         // Draw node soft glowing center
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(56, 189, 248, ${currentAlpha})`;
-        ctx.shadowColor = 'rgba(6, 182, 212, 0.45)';
+        ctx.fillStyle = `rgba(180, 244, 55, ${currentAlpha})`;
+        ctx.shadowColor = 'rgba(180, 244, 55, 0.45)';
         ctx.shadowBlur = 5;
         ctx.fill();
         ctx.shadowBlur = 0;
@@ -292,7 +292,7 @@ export const ThreeBackground: React.FC<ThreeBackgroundProps> = ({
         ctx.beginPath();
         ctx.arc(px, py, 1.5, 0, Math.PI * 2);
         ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
-        ctx.shadowColor = '#06B6D4';
+        ctx.shadowColor = '#B4F437';
         ctx.shadowBlur = 6;
         ctx.fill();
         ctx.shadowBlur = 0;
@@ -320,10 +320,10 @@ export const ThreeBackground: React.FC<ThreeBackgroundProps> = ({
       {/* Softened High-Tech Cyber Matrix Canvas with reduced opacity */}
       <canvas
         ref={canvasRef}
-        className="w-full h-full block opacity-45 transition-opacity duration-700"
+        className="w-full h-full block opacity-40 transition-opacity duration-700"
       />
       {/* Soft atmospheric gradient mask to softly blend canvas with deep canvas background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#050B14]/40 via-transparent to-[#050B14]/70 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#080C07]/40 via-transparent to-[#080C07]/70 pointer-events-none" />
     </div>
   );
 };

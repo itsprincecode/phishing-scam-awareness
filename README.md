@@ -10,8 +10,6 @@
 
 The platform provides simple and interactive educational content instead of overwhelming users with technical cybersecurity concepts.
 
-![alt text](image.png)
-
 Users can:
 
 - Learn about common cyber threats

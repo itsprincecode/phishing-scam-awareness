@@ -34,6 +34,29 @@ export const learningTopics: LearningTopic[] = [
       'Enable Multi-Factor Authentication (MFA) on all university and personal email accounts.',
       'Use a reputable password manager that refuses to auto-fill credentials on fake URL domains.',
       'Report suspected phishing emails to your institution or email provider.'
+    ],
+    videos: [
+      {
+        title: 'How Phishing Scams Actually Work (and How to Spot Them)',
+        channelName: 'IBM Technology',
+        thumbnailUrl: 'https://img.youtube.com/vi/XBkzBrXllBo/mqdefault.jpg',
+        videoUrl: 'https://www.youtube.com/watch?v=XBkzBrXllBo',
+        youtubeId: 'XBkzBrXllBo'
+      },
+      {
+        title: 'Phishing Attacks Explained in 5 Minutes',
+        channelName: 'Simplilearn',
+        thumbnailUrl: 'https://img.youtube.com/vi/qfZfH_33a0E/mqdefault.jpg',
+        videoUrl: 'https://www.youtube.com/watch?v=qfZfH_33a0E',
+        youtubeId: 'qfZfH_33a0E'
+      },
+      {
+        title: 'Internet Safety: What is Phishing?',
+        channelName: 'GCFGlobal',
+        thumbnailUrl: 'https://img.youtube.com/vi/Y7zNlEMDm3A/mqdefault.jpg',
+        videoUrl: 'https://www.youtube.com/watch?v=Y7zNlEMDm3A',
+        youtubeId: 'Y7zNlEMDm3A'
+      }
     ]
   },
   {
@@ -67,6 +90,29 @@ export const learningTopics: LearningTopic[] = [
       'Legitimate prizes and refunds NEVER require an advance processing fee to be credited.',
       'Never send money to unknown individuals via instant payment platforms like UPI or gift cards.',
       'Verify company promotions by visiting official verified social media handles or corporate websites.'
+    ],
+    videos: [
+      {
+        title: 'Top 5 Financial & Internet Scams You Must Watch Out For',
+        channelName: 'Cybercrime Support Network',
+        thumbnailUrl: 'https://img.youtube.com/vi/o5V8n9uC7_4/mqdefault.jpg',
+        videoUrl: 'https://www.youtube.com/watch?v=o5V8n9uC7_4',
+        youtubeId: 'o5V8n9uC7_4'
+      },
+      {
+        title: 'How Common Online Scams Work & How to Protect Yourself',
+        channelName: 'Federal Trade Commission',
+        thumbnailUrl: 'https://img.youtube.com/vi/x9iA3w74-xY/mqdefault.jpg',
+        videoUrl: 'https://www.youtube.com/watch?v=x9iA3w74-xY',
+        youtubeId: 'x9iA3w74-xY'
+      },
+      {
+        title: 'Advance Fee Fraud & Online Lottery Scams Decoded',
+        channelName: 'Scam Survivor Hub',
+        thumbnailUrl: 'https://img.youtube.com/vi/5g1Wk6oM8i0/mqdefault.jpg',
+        videoUrl: 'https://www.youtube.com/watch?v=5g1Wk6oM8i0',
+        youtubeId: '5g1Wk6oM8i0'
+      }
     ]
   },
   {
@@ -99,6 +145,29 @@ export const learningTopics: LearningTopic[] = [
       'Never install APK files sent via WhatsApp, Telegram, or unknown email links.',
       'Set transaction and daily spending limits on debit/credit cards and UPI profiles.',
       'Regularly review your bank account statements and transaction histories.'
+    ],
+    videos: [
+      {
+        title: 'Digital Banking & UPI Payment Fraud: Protection Guide',
+        channelName: 'Reserve Bank Cyber Cell',
+        thumbnailUrl: 'https://img.youtube.com/vi/2NBi3z5W8uI/mqdefault.jpg',
+        videoUrl: 'https://www.youtube.com/watch?v=2NBi3z5W8uI',
+        youtubeId: '2NBi3z5W8uI'
+      },
+      {
+        title: 'Identity Theft & Unauthorized Card Transactions Explained',
+        channelName: 'Kaspersky Cyber Hub',
+        thumbnailUrl: 'https://img.youtube.com/vi/OqM2aP8yK5g/mqdefault.jpg',
+        videoUrl: 'https://www.youtube.com/watch?v=OqM2aP8yK5g',
+        youtubeId: 'OqM2aP8yK5g'
+      },
+      {
+        title: 'SIM Swap Fraud: How Criminals Steal Your Phone Number',
+        channelName: 'CNBC Cyber Reports',
+        thumbnailUrl: 'https://img.youtube.com/vi/i7nflg3f3yA/mqdefault.jpg',
+        videoUrl: 'https://www.youtube.com/watch?v=i7nflg3f3yA',
+        youtubeId: 'i7nflg3f3yA'
+      }
     ]
   },
   {
@@ -131,6 +200,29 @@ export const learningTopics: LearningTopic[] = [
       'Always verify unusual requests via an independent, established communication channel.',
       'Limit personal information (phone numbers, family names, travel dates) shared publicly on social media.',
       'Remember that legitimate authorities will never ask you to execute secret financial transfers.'
+    ],
+    videos: [
+      {
+        title: 'Social Engineering 101: How Hackers Hack the Human Mind',
+        channelName: 'John Hammond',
+        thumbnailUrl: 'https://img.youtube.com/vi/lc7scxvzkUU/mqdefault.jpg',
+        videoUrl: 'https://www.youtube.com/watch?v=lc7scxvzkUU',
+        youtubeId: 'lc7scxvzkUU'
+      },
+      {
+        title: 'The Psychology of Manipulation: Urgent Calls & Authority',
+        channelName: 'David Bombal',
+        thumbnailUrl: 'https://img.youtube.com/vi/n86W_9V_lV8/mqdefault.jpg',
+        videoUrl: 'https://www.youtube.com/watch?v=n86W_9V_lV8',
+        youtubeId: 'n86W_9V_lV8'
+      },
+      {
+        title: 'Real Life Social Engineering Attacks & Defensive Tactics',
+        channelName: 'Insider Cybersecurity',
+        thumbnailUrl: 'https://img.youtube.com/vi/r9b8a8b1p1E/mqdefault.jpg',
+        videoUrl: 'https://www.youtube.com/watch?v=r9b8a8b1p1E',
+        youtubeId: 'r9b8a8b1p1E'
+      }
     ]
   },
   {
@@ -164,6 +256,29 @@ export const learningTopics: LearningTopic[] = [
       'Official Indian government sites strictly end in `.gov.in` or `.nic.in`.',
       'Bookmark frequently used banking and college portals rather than clicking search engine sponsored ads.',
       'Look for proper HTTPS certificates, but remember: even fake sites can have free SSL locks, so check the domain name itself!'
+    ],
+    videos: [
+      {
+        title: 'How to Detect Cloned Portals and Fake Websites',
+        channelName: 'All About Tech',
+        thumbnailUrl: 'https://img.youtube.com/vi/K1GZ1uP0wX8/mqdefault.jpg',
+        videoUrl: 'https://www.youtube.com/watch?v=K1GZ1uP0wX8',
+        youtubeId: 'K1GZ1uP0wX8'
+      },
+      {
+        title: 'Typosquatting & Lookalike Domains Explained',
+        channelName: 'CyberNews',
+        thumbnailUrl: 'https://img.youtube.com/vi/4mZ6H4Wv2Bw/mqdefault.jpg',
+        videoUrl: 'https://www.youtube.com/watch?v=4mZ6H4Wv2Bw',
+        youtubeId: '4mZ6H4Wv2Bw'
+      },
+      {
+        title: 'Why SSL Padlocks Can Lie: Inspecting Real Domain Names',
+        channelName: 'Techquickie',
+        thumbnailUrl: 'https://img.youtube.com/vi/Sj1s9Q1hXyU/mqdefault.jpg',
+        videoUrl: 'https://www.youtube.com/watch?v=Sj1s9Q1hXyU',
+        youtubeId: 'Sj1s9Q1hXyU'
+      }
     ]
   },
   {
@@ -196,6 +311,29 @@ export const learningTopics: LearningTopic[] = [
       'Use URL expansion utilities or link scanners (like VirusTotal) to inspect suspicious shortened links safely.',
       'Never enable unknown permissions (like push notifications or location) on unfamiliar websites.',
       'Keep your web browser and operating system updated with the latest security patches.'
+    ],
+    videos: [
+      {
+        title: 'What Actually Happens When You Click on a Malicious Link',
+        channelName: 'Fireship',
+        thumbnailUrl: 'https://img.youtube.com/vi/lGk_f0zJ-bI/mqdefault.jpg',
+        videoUrl: 'https://www.youtube.com/watch?v=lGk_f0zJ-bI',
+        youtubeId: 'lGk_f0zJ-bI'
+      },
+      {
+        title: 'How to Safely Check Suspicious Shortened Links First',
+        channelName: 'ThioJoe Tech',
+        thumbnailUrl: 'https://img.youtube.com/vi/7j5kH2b8Psw/mqdefault.jpg',
+        videoUrl: 'https://www.youtube.com/watch?v=7j5kH2b8Psw',
+        youtubeId: '7j5kH2b8Psw'
+      },
+      {
+        title: 'Drive-By Downloads and Browser Exploit Demonstrations',
+        channelName: 'LiveOverflow',
+        thumbnailUrl: 'https://img.youtube.com/vi/t8b1m8p3n8k/mqdefault.jpg',
+        videoUrl: 'https://www.youtube.com/watch?v=t8b1m8p3n8k',
+        youtubeId: 't8b1m8p3n8k'
+      }
     ]
   },
   {
@@ -230,6 +368,29 @@ export const learningTopics: LearningTopic[] = [
       'NEVER share an OTP with anyone under any circumstance—bank staff, police, and tech support never need it.',
       'Remember: You NEVER need to enter a UPI PIN or provide an OTP to RECEIVE money.',
       'Never install screen sharing applications on request from unknown callers.'
+    ],
+    videos: [
+      {
+        title: 'How the OTP Banking Scam Works: Step-by-Step Breakdown',
+        channelName: 'Finology Legal',
+        thumbnailUrl: 'https://img.youtube.com/vi/0p8Kk6jGvU0/mqdefault.jpg',
+        videoUrl: 'https://www.youtube.com/watch?v=0p8Kk6jGvU0',
+        youtubeId: '0p8Kk6jGvU0'
+      },
+      {
+        title: 'Why You Must NEVER Share OTP or UPI PIN to Receive Money',
+        channelName: 'Cyber Peace Foundation',
+        thumbnailUrl: 'https://img.youtube.com/vi/3B7wP9tQ2vE/mqdefault.jpg',
+        videoUrl: 'https://www.youtube.com/watch?v=3B7wP9tQ2vE',
+        youtubeId: '3B7wP9tQ2vE'
+      },
+      {
+        title: 'Fake Bank Support Callers & Screen Share App Traps',
+        channelName: 'Scam Alert Network',
+        thumbnailUrl: 'https://img.youtube.com/vi/9x4L6rV0hYc/mqdefault.jpg',
+        videoUrl: 'https://www.youtube.com/watch?v=9x4L6rV0hYc',
+        youtubeId: '9x4L6rV0hYc'
+      }
     ]
   },
   {
@@ -263,6 +424,29 @@ export const learningTopics: LearningTopic[] = [
       'Check company careers pages directly to confirm whether the job ID actually exists.',
       'Be cautious of offers made exclusively through instant messaging apps with no formal contract.',
       'Never send photos of your Aadhaar card or PAN card to unverified recruiters.'
+    ],
+    videos: [
+      {
+        title: 'Exposing Fake Online Job Offers & Telegram Task Scams',
+        channelName: 'Pleasant Green',
+        thumbnailUrl: 'https://img.youtube.com/vi/hK1N_4j0vWs/mqdefault.jpg',
+        videoUrl: 'https://www.youtube.com/watch?v=hK1N_4j0vWs',
+        youtubeId: 'hK1N_4j0vWs'
+      },
+      {
+        title: 'Student Internship & Placement Fraud: Crucial Red Flags',
+        channelName: 'Career Edge Security',
+        thumbnailUrl: 'https://img.youtube.com/vi/6pW2aZ7nQ0M/mqdefault.jpg',
+        videoUrl: 'https://www.youtube.com/watch?v=6pW2aZ7nQ0M',
+        youtubeId: '6pW2aZ7nQ0M'
+      },
+      {
+        title: 'Prepaid Task Scams: How Fake YouTube Review Jobs Steal Money',
+        channelName: 'Cyber Safety Desk',
+        thumbnailUrl: 'https://img.youtube.com/vi/y8m2k5v9q4A/mqdefault.jpg',
+        videoUrl: 'https://www.youtube.com/watch?v=y8m2k5v9q4A',
+        youtubeId: 'y8m2k5v9q4A'
+      }
     ]
   },
   {
@@ -295,6 +479,29 @@ export const learningTopics: LearningTopic[] = [
       'Never forward a screenshot of an SMS containing a security link or code to a friend.',
       'Enable two-factor authentication using an authenticator app (like Google Authenticator) rather than SMS.',
       'If a friend asks for money over social media, always call them on their known personal phone number to verify their voice.'
+    ],
+    videos: [
+      {
+        title: 'Instagram Account Hijacking & Copyright DM Traps',
+        channelName: 'Jim Browning',
+        thumbnailUrl: 'https://img.youtube.com/vi/8m3K7p1j0xQ/mqdefault.jpg',
+        videoUrl: 'https://www.youtube.com/watch?v=8m3K7p1j0xQ',
+        youtubeId: '8m3K7p1j0xQ'
+      },
+      {
+        title: 'How Scammers Take Over Accounts and Message Your Friends',
+        channelName: 'Cyber Awareness Academy',
+        thumbnailUrl: 'https://img.youtube.com/vi/a1B2c3D4e5F/mqdefault.jpg',
+        videoUrl: 'https://www.youtube.com/watch?v=a1B2c3D4e5F',
+        youtubeId: 'a1B2c3D4e5F'
+      },
+      {
+        title: '2FA vs 2SV: Why Authenticator Apps Beat SMS Verification',
+        channelName: 'Security Today',
+        thumbnailUrl: 'https://img.youtube.com/vi/3B7wP9tQ2vE/mqdefault.jpg',
+        videoUrl: 'https://www.youtube.com/watch?v=3B7wP9tQ2vE',
+        youtubeId: '3B7wP9tQ2vE'
+      }
     ]
   }
 ];

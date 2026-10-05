@@ -1,3 +1,11 @@
+export interface TopicVideo {
+  title: string;
+  channelName: string;
+  thumbnailUrl: string;
+  videoUrl?: string;
+  youtubeId?: string;
+}
+
 export interface LearningTopic {
   id: string;
   title: string;
@@ -15,6 +23,7 @@ export interface LearningTopic {
     impact: string;
   };
   protectionTips: string[];
+  videos?: TopicVideo[];
 }
 
 export type ScenarioVerdict = 'safe' | 'suspicious' | 'scam';

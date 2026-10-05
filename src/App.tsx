@@ -12,6 +12,7 @@ import { Quiz } from './pages/Quiz';
 import { Safety } from './pages/Safety';
 import { About } from './pages/About';
 import { ParticipantResults } from './pages/ParticipantResults';
+import { Responses } from './pages/Responses';
 
 // Helper component to scroll window to top on route change
 function ScrollToTop() {
@@ -30,7 +31,7 @@ export default function App() {
       <ScrollToTop />
       {/* Cinematic intro loading animation (website name only, no icons) */}
       <CinematicLoader />
-      <div className="relative min-h-screen bg-[#050B14] text-slate-100 flex flex-col font-sans selection:bg-cyan-500/30 selection:text-cyan-200">
+      <div className="relative min-h-screen bg-[#080C07] text-neutral-100 flex flex-col font-sans selection:bg-[#B4F437]/30 selection:text-white">
         {/* ================================================================= */}
         {/* THREEUI BACKGROUND CONTAINER                                      */}
         {/* Preserved dedicated shader layer for raw WebGL LaserCollection    */}
@@ -49,6 +50,8 @@ export default function App() {
             <Route path="/detect" element={<Detect />} />
             <Route path="/quiz" element={<Quiz />} />
             <Route path="/safety" element={<Safety />} />
+            <Route path="/responses" element={<Responses />} />
+            <Route path="/form-responses" element={<Responses />} />
             <Route path="/about" element={<About />} />
             <Route path="/results" element={<ParticipantResults />} />
             <Route path="/participant-results" element={<ParticipantResults />} />

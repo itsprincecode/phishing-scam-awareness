@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShieldCheck, Search, Award, RotateCcw, ArrowRight, CheckCircle2, User } from 'lucide-react';
+import { Search, RotateCcw, ArrowRight, CheckCircle2, User } from 'lucide-react';
 import { detectionScenarios } from '../data/detectionScenarios';
 import { ScenarioCard } from '../components/ScenarioCard';
 import { ProgressBar } from '../components/ProgressBar';
@@ -19,7 +19,6 @@ export const Detect: React.FC = () => {
   const currentScenario = detectionScenarios[currentIndex];
 
   const handleSelectVerdict = (verdict: ScenarioVerdict) => {
-    // Record real scenario analyzed count if not previously answered in this session
     if (!userVerdicts[currentScenario.id]) {
       recordScenarioAnalyzed();
     }
@@ -52,31 +51,31 @@ export const Detect: React.FC = () => {
   const answeredCount = Object.keys(userVerdicts).length;
 
   return (
-    <div className="relative z-10 py-10 md:py-16">
+    <div className="relative z-10 py-12 md:py-16">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         {!participant ? (
           <div>
             {/* Header */}
-            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-8">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-10">
               <div className="max-w-2xl">
-                <div className="inline-flex items-center gap-2 rounded-full border border-cyan-800/40 bg-cyan-950/30 px-3 py-1 text-xs font-semibold text-cyan-300 mb-3">
+                <div className="inline-flex items-center gap-2 rounded-md border border-[#B4F437]/30 bg-[#162013] px-3 py-1 text-xs font-bold text-[#B4F437] mb-3">
                   <Search className="h-3.5 w-3.5" />
                   <span>Interactive Threat Simulator</span>
                 </div>
-                <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
                   Phishing & Scam Detector
                 </h1>
-                <p className="mt-2 text-sm text-slate-300 leading-relaxed">
+                <p className="mt-3 text-base sm:text-lg text-neutral-200 leading-relaxed font-normal">
                   Examine authentic-looking digital communications. Analyze the sender, URL domains, urgent language, and hidden tricks to classify them as <strong>Safe</strong>, <strong>Suspicious</strong>, or <strong>Scam</strong>.
                 </p>
               </div>
 
               <Link
                 to="/results"
-                className="inline-flex items-center gap-1.5 self-start shrink-0 rounded-xl border border-slate-700/80 bg-slate-800/50 hover:bg-slate-800 px-3.5 py-2 text-xs font-semibold text-slate-300 hover:text-cyan-300 transition-colors"
+                className="inline-flex items-center gap-1.5 self-start shrink-0 rounded-lg border border-white/10 bg-[#121811] hover:bg-[#182216] px-4 py-2.5 text-xs font-bold text-neutral-300 hover:text-white transition-colors"
               >
-                <span>Check My Past Results</span>
-                <ArrowRight className="h-3.5 w-3.5" />
+                <span>Check Past Results</span>
+                <ArrowRight className="h-3.5 w-3.5 text-[#B4F437]" />
               </Link>
             </div>
 
@@ -93,18 +92,18 @@ export const Detect: React.FC = () => {
         ) : !completed ? (
           <div>
             {/* Participant Status Bar */}
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 pb-4 border-b border-slate-800/80">
-              <div className="inline-flex items-center gap-2 text-xs font-medium text-cyan-300">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 pb-4 border-b border-white/10">
+              <div className="inline-flex items-center gap-2 text-xs font-semibold text-[#B4F437]">
                 <User className="h-3.5 w-3.5" />
                 <span>Participant: <strong className="text-white">{participant.name}</strong></span>
-                <span className="text-slate-500">•</span>
-                <span className="text-slate-400">{participant.email}</span>
+                <span className="text-neutral-600">•</span>
+                <span className="text-neutral-400 font-normal">{participant.email}</span>
               </div>
 
               <button
                 type="button"
                 onClick={handleRestart}
-                className="text-xs text-slate-400 hover:text-rose-300 transition-colors self-start sm:self-auto flex items-center gap-1"
+                className="text-xs text-neutral-400 hover:text-rose-400 transition-colors self-start sm:self-auto flex items-center gap-1"
               >
                 <RotateCcw className="h-3 w-3" />
                 <span>Switch Participant</span>
@@ -112,7 +111,7 @@ export const Detect: React.FC = () => {
             </div>
 
             {/* Progress Bar & Quick Stats */}
-            <div className="mb-6 rounded-xl border border-slate-800 bg-[#081220] p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="mb-6 rounded-2xl border border-white/10 bg-[#0F150E] p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="w-full sm:max-w-xs">
                 <ProgressBar
                   current={currentIndex + 1}
@@ -121,10 +120,10 @@ export const Detect: React.FC = () => {
                 />
               </div>
 
-              <div className="flex items-center gap-4 text-xs">
-                <div className="text-slate-400">
+              <div className="flex items-center gap-4 text-xs font-medium">
+                <div className="text-neutral-400">
                   Identified:{' '}
-                  <strong className="text-cyan-300">
+                  <strong className="text-[#B4F437]">
                     {correctCount} / {answeredCount} correct
                   </strong>
                 </div>
@@ -132,7 +131,7 @@ export const Detect: React.FC = () => {
                 <button
                   type="button"
                   onClick={handleRestart}
-                  className="text-slate-400 hover:text-white transition-colors flex items-center gap-1"
+                  className="text-neutral-400 hover:text-white transition-colors flex items-center gap-1 font-bold"
                 >
                   <RotateCcw className="h-3 w-3" />
                   <span>Reset</span>
@@ -141,7 +140,7 @@ export const Detect: React.FC = () => {
             </div>
 
             {/* Scenario Navigation Tabs */}
-            <div className="flex items-center gap-1.5 overflow-x-auto pb-3 mb-6 scrollbar-none">
+            <div className="flex items-center gap-2 overflow-x-auto pb-3 mb-6 scrollbar-none">
               {detectionScenarios.map((sc, idx) => {
                 const isSelected = idx === currentIndex;
                 const userChoice = userVerdicts[sc.id];
@@ -152,16 +151,16 @@ export const Detect: React.FC = () => {
                     key={sc.id}
                     type="button"
                     onClick={() => setCurrentIndex(idx)}
-                    className={`shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                    className={`shrink-0 flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all ${
                       isSelected
-                        ? 'bg-cyan-500 text-[#050B14] font-bold shadow-md shadow-cyan-950'
+                        ? 'bg-[#B4F437] text-[#080C07] shadow-md shadow-[#B4F437]/25'
                         : isDone
-                        ? 'bg-slate-800/80 text-cyan-300 border border-cyan-900/40'
-                        : 'bg-slate-900 text-slate-400 border border-slate-800 hover:bg-slate-800'
+                        ? 'bg-[#141C12] text-[#B4F437] border border-[#B4F437]/30'
+                        : 'bg-[#10160F] text-neutral-400 border border-white/10 hover:bg-[#162013]'
                     }`}
                   >
                     <span>Case {idx + 1}</span>
-                    {isDone && <CheckCircle2 className="h-3 w-3" />}
+                    {isDone && <CheckCircle2 className="h-3 w-3 text-[#B4F437]" />}
                   </button>
                 );
               })}
@@ -196,9 +195,9 @@ export const Detect: React.FC = () => {
 
         {/* Interconnected Link */}
         <div className="mt-12 text-center">
-          <p className="text-xs text-slate-400">
+          <p className="text-xs text-neutral-400">
             Want to test broad cybersecurity theory?{' '}
-            <Link to="/quiz" className="text-cyan-400 hover:underline font-semibold">
+            <Link to="/quiz" className="text-[#B4F437] hover:underline font-bold">
               Take the 10-Question Awareness Quiz →
             </Link>
           </p>

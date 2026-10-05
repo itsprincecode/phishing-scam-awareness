@@ -5,12 +5,7 @@ import {
   ExternalLink,
   PhoneCall,
   AlertOctagon,
-  Lock,
-  FileCheck2,
-  HelpCircle,
-  Clock,
   Landmark,
-  CheckCircle2,
   Info
 } from 'lucide-react';
 import { SafetyCard } from '../components/SafetyCard';
@@ -18,18 +13,18 @@ import { Link } from 'react-router-dom';
 
 export const Safety: React.FC = () => {
   return (
-    <div className="relative z-10 py-10 md:py-16">
+    <div className="relative z-10 py-12 md:py-16">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mb-12">
-          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-800/40 bg-emerald-950/30 px-3 py-1 text-xs font-semibold text-emerald-300 mb-3">
+          <div className="inline-flex items-center gap-2 rounded-md border border-[#B4F437]/30 bg-[#162013] px-3 py-1 text-xs font-bold text-[#B4F437] mb-3">
             <ShieldAlert className="h-3.5 w-3.5" />
             <span>Practical Incident Response Guide</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
             Safety Center & Incident Guidance
           </h1>
-          <p className="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p className="mt-3 text-base sm:text-lg text-neutral-200 leading-relaxed font-normal">
             Clear, actionable steps to take if you receive a suspicious message, accidentally click a malicious link, or suspect financial fraud.
           </p>
         </div>
@@ -136,17 +131,17 @@ export const Safety: React.FC = () => {
         {/* Official Reporting Resources Section */}
         <section
           id="official-resources-section"
-          className="rounded-2xl border border-cyan-900/40 bg-[#06101E] p-6 sm:p-8 mb-12 shadow-xl"
+          className="rounded-2xl border border-white/10 bg-[#0F150E] p-6 sm:p-8 mb-12 shadow-xl"
         >
           <div className="flex items-center gap-3 mb-6">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-950 border border-cyan-800 text-cyan-400">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#141C12] border border-[#B4F437]/30 text-[#B4F437]">
               <PhoneCall className="h-5 w-5" />
             </div>
             <div>
               <h2 className="text-xl font-bold text-white tracking-tight">
                 Official Indian Cybercrime Helplines & Portals
               </h2>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-neutral-400 font-normal">
                 Authorized government platforms for reporting cyber offenses
               </p>
             </div>
@@ -154,48 +149,48 @@ export const Safety: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
             {/* Helpline 1930 */}
-            <div className="rounded-xl border border-slate-800 bg-[#040812] p-5">
+            <div className="rounded-xl border border-white/10 bg-[#080C07] p-5">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-semibold uppercase tracking-wider text-red-400">
+                <span className="text-xs font-bold uppercase tracking-wider text-red-400">
                   Immediate Financial Fraud
                 </span>
-                <span className="text-[10px] bg-red-950 text-red-300 px-2 py-0.5 rounded border border-red-900/50">
+                <span className="text-[10px] bg-red-950/60 text-red-300 px-2 py-0.5 rounded border border-red-900/50">
                   24x7 Toll Free
                 </span>
               </div>
               <div className="text-3xl font-extrabold text-white tracking-tight my-1">
                 Dial 1930
               </div>
-              <p className="text-xs text-slate-300 leading-relaxed mt-2">
+              <p className="text-xs text-neutral-300 leading-relaxed mt-2 font-normal">
                 Citizen Financial Cyber Fraud Reporting and Management System (CFCFRMS), Ministry of Home Affairs, Government of India.
               </p>
             </div>
 
             {/* Portal cybercrime.gov.in */}
-            <div className="rounded-xl border border-slate-800 bg-[#040812] p-5 flex flex-col justify-between">
+            <div className="rounded-xl border border-white/10 bg-[#080C07] p-5 flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-cyan-400">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#B4F437]">
                     National Web Portal
                   </span>
-                  <span className="text-[10px] bg-cyan-950 text-cyan-300 px-2 py-0.5 rounded border border-cyan-900/50">
+                  <span className="text-[10px] bg-[#162013] text-[#B4F437] px-2 py-0.5 rounded border border-[#B4F437]/30">
                     Official Govt
                   </span>
                 </div>
                 <div className="text-lg font-bold font-mono text-white tracking-tight my-1">
                   cybercrime.gov.in
                 </div>
-                <p className="text-xs text-slate-300 leading-relaxed mt-1 font-normal">
+                <p className="text-xs text-neutral-300 leading-relaxed mt-1 font-normal">
                   Lodge online complaints regarding financial fraud, cyber harassment, hacking, or social media impersonation.
                 </p>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-slate-800/80">
+              <div className="mt-4 pt-3 border-t border-white/10">
                 <a
                   href="https://cybercrime.gov.in"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#B4F437] hover:underline transition-colors"
                 >
                   <span>Visit National Cybercrime Portal</span>
                   <ExternalLink className="h-3.5 w-3.5" />
@@ -205,27 +200,27 @@ export const Safety: React.FC = () => {
           </div>
 
           {/* Critical Disclaimer Notice */}
-          <div className="rounded-xl border border-amber-900/50 bg-amber-950/20 p-4 flex items-start gap-3">
+          <div className="rounded-xl border border-amber-900/40 bg-amber-950/20 p-4 flex items-start gap-3">
             <Info className="h-5 w-5 text-amber-400 shrink-0 mt-0.5" />
-            <div className="text-xs text-slate-300 leading-relaxed font-normal">
+            <div className="text-xs text-neutral-300 leading-relaxed font-normal">
               <strong className="text-amber-300 font-semibold">Important Advisory:</strong> This CyberAware website is an educational extension project and does NOT process, file, or transmit official criminal complaints directly to law enforcement authorities. To officially register a cyber fraud case, always use the government helpline (<strong>1930</strong>) or the official portal (<strong className="font-mono">cybercrime.gov.in</strong>).
             </div>
           </div>
         </section>
 
         {/* Quick Review Navigation */}
-        <div className="rounded-xl border border-slate-800 bg-[#081220] p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="rounded-2xl border border-white/10 bg-[#0F150E] p-6 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl">
           <div>
-            <h3 className="text-sm font-semibold text-white">
+            <h3 className="text-sm sm:text-base font-bold text-white">
               Want to see how cyber threats actually appear in the real world?
             </h3>
-            <p className="text-xs text-slate-400 mt-0.5 font-normal">
+            <p className="text-xs text-neutral-400 mt-0.5 font-normal">
               Practice identifying red flags in our scenario simulation.
             </p>
           </div>
           <Link
             to="/detect"
-            className="inline-flex items-center gap-1.5 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-[#050B14] px-4 py-2 text-xs font-semibold transition-all shrink-0"
+            className="inline-flex items-center gap-2 rounded-lg bg-[#B4F437] hover:bg-[#C6F756] text-[#080C07] px-6 py-2.5 text-xs sm:text-sm font-bold transition-all shadow-[0_0_20px_rgba(180,244,55,0.25)] shrink-0"
           >
             <span>Explore Detection Scenarios</span>
             <ExternalLink className="h-3.5 w-3.5" />

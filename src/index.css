@@ -3,6 +3,8 @@
 @theme {
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --color-neon-lime: #B4F437;
+  --color-neon-lime-hover: #C6F756;
 }
 
 @layer base {
@@ -10,17 +12,17 @@
     font-family: var(--font-sans);
     color-scheme: dark;
     scroll-behavior: smooth;
-    background-color: #050B14;
+    background-color: #080C07;
     text-rendering: optimizeLegibility;
   }
 
   body {
     font-family: var(--font-sans);
-    background-color: #050B14;
-    color: #F1F5F9;
+    background-color: #080C07;
+    color: #F3F4F6;
     font-weight: 400;
-    line-height: 1.6;
-    letter-spacing: -0.011em;
+    line-height: 1.65;
+    letter-spacing: 0;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -51,7 +53,18 @@
   }
 
   p {
-    line-height: 1.625;
+    line-height: 1.7;
+    font-weight: 400;
+    letter-spacing: 0.005em;
+  }
+
+  /* Enhanced description styling for maximum readability */
+  .readable-desc,
+  p.description,
+  .desc-text {
+    color: #E2E8F0;
+    line-height: 1.7;
+    letter-spacing: 0.01em;
     font-weight: 400;
   }
 
@@ -72,16 +85,21 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #050B14;
+  background: #080C07;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1E293B;
+  background: #182216;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0EA5E9;
+  background: #B4F437;
+}
+
+::selection {
+  background-color: rgba(180, 244, 55, 0.35);
+  color: #FFFFFF;
 }
 
 @media print {
@@ -99,6 +117,8 @@
 
   nav,
   footer,
+  #threeui-background-container,
+  #cinematic-loader,
   form,
   button,
   .print\:hidden,

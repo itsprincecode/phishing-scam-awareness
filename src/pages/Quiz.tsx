@@ -4,10 +4,7 @@ import {
   ArrowRight,
   ArrowLeft,
   RotateCcw,
-  CheckCircle,
-  Eye,
-  User,
-  Shield
+  User
 } from 'lucide-react';
 import { quizQuestions } from '../data/quizQuestions';
 import { QuizQuestion } from '../components/QuizQuestion';
@@ -68,31 +65,31 @@ export const Quiz: React.FC = () => {
   }, 0);
 
   return (
-    <div className="relative z-10 py-10 md:py-16">
+    <div className="relative z-10 py-12 md:py-16">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         {/* If participant has not entered name & email, show start gate */}
         {!participant ? (
           <div>
-            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-8">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-10">
               <div className="max-w-xl">
-                <div className="inline-flex items-center gap-2 rounded-full border border-cyan-800/40 bg-cyan-950/30 px-3 py-1 text-xs font-semibold text-cyan-300 mb-3">
+                <div className="inline-flex items-center gap-2 rounded-md border border-[#B4F437]/30 bg-[#162013] px-3 py-1 text-xs font-bold text-[#B4F437] mb-3">
                   <HelpCircle className="h-3.5 w-3.5" />
                   <span>Interactive Assessment</span>
                 </div>
-                <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-                  Cybersecurity Awareness Quiz
+                <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+                  Cyber Awareness Quiz
                 </h1>
-                <p className="mt-2 text-sm text-slate-300 leading-relaxed">
+                <p className="mt-3 text-base sm:text-lg text-neutral-200 leading-relaxed font-normal">
                   Test your real-world readiness against phishing, imposter emails, scam WhatsApp texts, fraudulent calls, and OTP manipulation.
                 </p>
               </div>
 
               <Link
                 to="/results"
-                className="inline-flex items-center gap-1.5 self-start shrink-0 rounded-xl border border-slate-700/80 bg-slate-800/50 hover:bg-slate-800 px-3.5 py-2 text-xs font-semibold text-slate-300 hover:text-cyan-300 transition-colors"
+                className="inline-flex items-center gap-1.5 self-start shrink-0 rounded-lg border border-white/10 bg-[#121811] hover:bg-[#182216] px-4 py-2.5 text-xs font-bold text-neutral-300 hover:text-white transition-colors"
               >
-                <span>Check My Past Results</span>
-                <ArrowRight className="h-3.5 w-3.5" />
+                <span>Check Past Results</span>
+                <ArrowRight className="h-3.5 w-3.5 text-[#B4F437]" />
               </Link>
             </div>
 
@@ -109,20 +106,20 @@ export const Quiz: React.FC = () => {
         ) : !isCompleted ? (
           <div>
             {/* Header with Active Participant info */}
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 pb-4 border-b border-slate-800/80">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 pb-4 border-b border-white/10">
               <div>
-                <div className="inline-flex items-center gap-2 text-xs font-medium text-cyan-300">
+                <div className="inline-flex items-center gap-2 text-xs font-semibold text-[#B4F437]">
                   <User className="h-3.5 w-3.5" />
                   <span>Participant: <strong className="text-white">{participant.name}</strong></span>
-                  <span className="text-slate-500">•</span>
-                  <span className="text-slate-400">{participant.email}</span>
+                  <span className="text-neutral-600">•</span>
+                  <span className="text-neutral-400 font-normal">{participant.email}</span>
                 </div>
               </div>
 
               <button
                 type="button"
                 onClick={handleRestart}
-                className="text-xs text-slate-400 hover:text-rose-300 transition-colors self-start sm:self-auto flex items-center gap-1"
+                className="text-xs text-neutral-400 hover:text-rose-400 transition-colors self-start sm:self-auto flex items-center gap-1"
               >
                 <RotateCcw className="h-3 w-3" />
                 <span>Switch Participant</span>
@@ -130,7 +127,7 @@ export const Quiz: React.FC = () => {
             </div>
 
             {/* Progress Bar Container */}
-            <div className="mb-6 rounded-xl border border-slate-800 bg-[#081220] p-4">
+            <div className="mb-6 rounded-2xl border border-white/10 bg-[#0F150E] p-5">
               <ProgressBar
                 current={currentIdx + 1}
                 total={total}
@@ -154,7 +151,7 @@ export const Quiz: React.FC = () => {
                 type="button"
                 disabled={currentIdx === 0}
                 onClick={handlePrev}
-                className="inline-flex items-center gap-2 rounded-xl border border-slate-800 bg-[#0A1424] px-4 py-2.5 text-xs font-semibold text-slate-300 hover:bg-slate-800 hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-colors"
+                className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-[#121811] px-5 py-2.5 text-xs font-bold text-neutral-300 hover:bg-[#182216] hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-colors"
               >
                 <ArrowLeft className="h-4 w-4" />
                 <span>Previous</span>
@@ -162,7 +159,7 @@ export const Quiz: React.FC = () => {
 
               <div className="flex items-center gap-3">
                 {userSelection === null && (
-                  <span className="text-xs text-slate-500 hidden sm:inline">
+                  <span className="text-xs text-neutral-500 hidden sm:inline font-medium">
                     Select an answer to proceed
                   </span>
                 )}
@@ -172,7 +169,7 @@ export const Quiz: React.FC = () => {
                   type="button"
                   disabled={userSelection === null}
                   onClick={handleNext}
-                  className="inline-flex items-center gap-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 disabled:opacity-40 disabled:pointer-events-none text-[#050B14] px-5 py-2.5 text-xs font-bold transition-all shadow-md shadow-cyan-950 active:scale-[0.98]"
+                  className="inline-flex items-center gap-2 rounded-lg bg-[#B4F437] hover:bg-[#C6F756] disabled:opacity-40 disabled:pointer-events-none text-[#080C07] px-6 py-2.5 text-xs font-bold transition-all shadow-[0_0_20px_rgba(180,244,55,0.25)] active:scale-[0.98]"
                 >
                   <span>{currentIdx === total - 1 ? 'Finish & See Results' : 'Next Question'}</span>
                   <ArrowRight className="h-4 w-4" />
@@ -198,9 +195,9 @@ export const Quiz: React.FC = () => {
 
         {/* Footer info link */}
         <div className="mt-12 text-center">
-          <p className="text-xs text-slate-400">
+          <p className="text-xs text-neutral-400">
             Encountered an unfamiliar threat term?{' '}
-            <Link to="/learn" className="text-cyan-400 hover:underline font-semibold">
+            <Link to="/learn" className="text-[#B4F437] hover:underline font-bold">
               Browse the Learn Topics Hub →
             </Link>
           </p>
