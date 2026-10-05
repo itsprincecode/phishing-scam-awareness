@@ -1,5 +1,20 @@
 // Utility for connecting and parsing Google Form responses from Google Sheets
 
+/**
+ * ============================================================================
+ * 🔗 PASTE YOUR GOOGLE SHEET LINK HERE
+ * ============================================================================
+ * Put your Google Sheet published CSV link, Google Sheet URL, or Sheet ID
+ * between the quotes below. When set, the website will automatically load
+ * your real-time responses from this sheet on every visit.
+ *
+ * Example:
+ * export const PERMANENT_GOOGLE_SHEET_URL: string =
+ *   'https://docs.google.com/spreadsheets/d/e/2PACX-1v.../pub?output=csv';
+ */
+export const PERMANENT_GOOGLE_SHEET_URL: string =
+  (import.meta.env.VITE_GOOGLE_SHEET_URL as string) || '';
+
 export interface SheetResponseData {
   headers: string[];
   rows: Record<string, string>[];
@@ -25,15 +40,7 @@ export const EMPTY_SHEET_DATA: SheetResponseData = {
 export const LOCAL_STORAGE_SHEET_KEY = 'cyberaware_google_sheet_url';
 
 /**
- * PERMANENT GOOGLE SHEET URL
- * If you want a hardcoded permanent Google Sheet link in the codebase,
- * place your published CSV URL, sharing link, or Sheet ID here or in VITE_GOOGLE_SHEET_URL.
- */
-export const PERMANENT_GOOGLE_SHEET_URL: string =
-  (import.meta.env.VITE_GOOGLE_SHEET_URL as string) || '';
-
-/**
- * Returns the active sheet URL from code config or localStorage
+ * Returns the active sheet URL from PERMANENT_GOOGLE_SHEET_URL or localStorage
  */
 export function getSavedSheetUrl(): string {
   if (PERMANENT_GOOGLE_SHEET_URL && PERMANENT_GOOGLE_SHEET_URL.trim().length > 0) {

@@ -12,26 +12,24 @@ import {
   X,
   LayoutGrid,
   Table as TableIcon,
-  CheckCircle2,
   SlidersHorizontal,
   ArrowUpDown,
   ArrowUp,
   ArrowDown,
-  Check,
   Eye,
-  Filter
+  Code2
 } from 'lucide-react';
 import {
   fetchGoogleSheetData,
   EMPTY_SHEET_DATA,
   SheetResponseData,
   getSavedSheetUrl,
-  saveSheetUrl
+  saveSheetUrl,
+  PERMANENT_GOOGLE_SHEET_URL
 } from '../lib/googleSheets';
 
 export const Responses: React.FC = () => {
   const [activeSheetUrl, setActiveSheetUrl] = useState<string>(() => getSavedSheetUrl());
-  const [newUrlInput, setNewUrlInput] = useState('');
   const [data, setData] = useState<SheetResponseData>(EMPTY_SHEET_DATA);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -115,15 +113,6 @@ export const Responses: React.FC = () => {
 
     return () => clearInterval(interval);
   }, [autoRefresh, activeSheetUrl, loadSheet]);
-
-  const handleSavePermanentUrl = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!newUrlInput.trim()) {
-      setError('Please provide a valid Google Sheet published CSV URL or sharing link.');
-      return;
-    }
-    loadSheet(newUrlInput.trim());
-  };
 
   // Toggle column visibility
   const toggleColumnVisibility = (header: string) => {
@@ -217,7 +206,6 @@ export const Responses: React.FC = () => {
   const handleExportCSV = () => {
     if (data.headers.length === 0 || data.rows.length === 0) return;
 
-    // Export either visible columns or all columns
     const headersToExport = displayedHeaders.length > 0 ? displayedHeaders : data.headers;
 
     const csvContent = [
@@ -244,7 +232,6 @@ export const Responses: React.FC = () => {
   const analyticsData = useMemo(() => {
     if (data.headers.length === 0 || data.rows.length === 0) return [];
 
-    // Filter out purely unique timestamp fields if others exist
     const columnsToAnalyze = displayedHeaders.filter(
       (h) => !h.toLowerCase().includes('timestamp') && !h.toLowerCase().includes('time')
     );
@@ -282,7 +269,7 @@ export const Responses: React.FC = () => {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* ============================================================= */}
-        {/* HEADER SECTION                                                */}
+        {/* HEADER SECTION (CLEAN, NO LINK INPUT BAR)                     */}
         {/* ============================================================= */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6 pb-6 border-b border-white/10">
           <div>
@@ -320,37 +307,6 @@ export const Responses: React.FC = () => {
             </button>
           </div>
         </div>
-
-        {/* ============================================================= */}
-        {/* PERMANENT URL SETUP BAR (ONLY SHOWN IF NO URL CONFIGURED)     */}
-        {/* ============================================================= */}
-        {!activeSheetUrl && (
-          <div className="mb-6 rounded-2xl border border-[#B4F437]/30 bg-[#0F160E] p-5 shadow-xl">
-            <div className="flex items-center gap-2 mb-2 text-[#B4F437] text-xs font-bold uppercase tracking-wider">
-              <CheckCircle2 className="w-4 h-4" />
-              <span>Connect Permanent Google Sheet URL</span>
-            </div>
-            <p className="text-xs sm:text-sm text-neutral-200 mb-4 leading-relaxed">
-              Enter your Google Sheet published CSV link or sharing URL below. Once submitted, it will permanently link to this website and automatically load your form responses every time you visit.
-            </p>
-            <form onSubmit={handleSavePermanentUrl} className="flex flex-col sm:flex-row gap-2.5">
-              <input
-                type="text"
-                value={newUrlInput}
-                onChange={(e) => setNewUrlInput(e.target.value)}
-                placeholder="https://docs.google.com/spreadsheets/d/e/.../pub?output=csv OR Sheet Link"
-                className="flex-1 rounded-lg border border-white/15 bg-black/60 px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-neutral-500 focus:border-[#B4F437] focus:outline-none focus:ring-1 focus:ring-[#B4F437]"
-              />
-              <button
-                type="submit"
-                disabled={loading}
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#B4F437] hover:bg-[#C6F756] text-[#080C07] px-6 py-2.5 text-xs sm:text-sm font-bold transition-all disabled:opacity-50"
-              >
-                <span>Save & Load Responses</span>
-              </button>
-            </form>
-          </div>
-        )}
 
         {/* Error notification if any */}
         {error && (
@@ -511,9 +467,7 @@ export const Responses: React.FC = () => {
               </div>
             )}
 
-            {/* =========================================================== */}
-            {/* WORKABLE "ALL COLUMNS" VISIBILITY BUTTON & DROPDOWN         */}
-            {/* =========================================================== */}
+            {/* WORKABLE "ALL COLUMNS" VISIBILITY BUTTON & DROPDOWN */}
             {data.headers.length > 0 && (
               <div className="relative" ref={columnDropdownRef}>
                 <button
@@ -703,14 +657,14 @@ export const Responses: React.FC = () => {
           <div className="rounded-xl border border-white/10 bg-white/[0.02] p-12 text-center">
             <FileSpreadsheet className="w-12 h-12 text-neutral-600 mx-auto mb-3" />
             <h3 className="text-base sm:text-lg font-bold text-white mb-1">
-              No Responses Loaded Yet
+              {activeSheetUrl ? 'No Responses in Sheet' : 'No Google Sheet Configured'}
             </h3>
-            <p className="text-xs sm:text-sm text-neutral-400 max-w-md mx-auto mb-5">
+            <p className="text-xs sm:text-sm text-neutral-400 max-w-md mx-auto mb-5 leading-relaxed">
               {activeSheetUrl
                 ? 'Your connected spreadsheet appears to have no submissions yet, or is currently empty.'
-                : 'Enter your Google Sheet URL above to load real-time form responses.'}
+                : 'Please add your Google Sheet link directly into src/lib/googleSheets.ts under PERMANENT_GOOGLE_SHEET_URL to display your live responses.'}
             </p>
-            {activeSheetUrl && (
+            {activeSheetUrl ? (
               <button
                 onClick={() => loadSheet(activeSheetUrl)}
                 className="inline-flex items-center gap-2 rounded-lg bg-[#B4F437] text-[#080C07] px-5 py-2.5 text-xs font-bold"
@@ -718,14 +672,18 @@ export const Responses: React.FC = () => {
                 <RefreshCw className="w-4 h-4" />
                 <span>Sync Now</span>
               </button>
+            ) : (
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/10 bg-black/60 font-mono text-xs text-[#B4F437]">
+                <Code2 className="w-3.5 h-3.5" />
+                <span>src/lib/googleSheets.ts ➔ PERMANENT_GOOGLE_SHEET_URL</span>
+              </div>
             )}
           </div>
         ) : activeTab === 'table' ? (
           /* =========================================================== */
-          /* CORRECT & RESPONSIVE DATA TABLE                             */
+          /* DATA TABLE                                                  */
           /* =========================================================== */
           <div>
-            {/* Desktop Table View & Mobile Table View */}
             <div className={`${mobileLayout === 'cards' ? 'hidden sm:block' : 'block'} rounded-xl border border-white/10 bg-white/[0.02] overflow-hidden`}>
               <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-white/10">
                 <table className="w-full text-left text-xs border-collapse">
@@ -812,7 +770,7 @@ export const Responses: React.FC = () => {
               </div>
             </div>
 
-            {/* Mobile Cards View (Only when cards layout is selected on small screens) */}
+            {/* Mobile Cards View */}
             <div className={`${mobileLayout === 'cards' ? 'block sm:hidden' : 'hidden'} space-y-3`}>
               {paginatedRows.map((row, rIdx) => {
                 const absoluteIndex = (currentPage - 1) * rowsPerPage + rIdx + 1;
@@ -886,7 +844,7 @@ export const Responses: React.FC = () => {
           </div>
         ) : (
           /* =========================================================== */
-          /* CORRECT & RESPONSIVE QUESTION INSIGHTS                      */
+          /* QUESTION INSIGHTS                                           */
           /* =========================================================== */
           <div className="space-y-4">
             <div className="flex items-center justify-between text-xs text-neutral-400 pb-2 border-b border-white/10">
