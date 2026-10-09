@@ -117,7 +117,7 @@ export const Footer: React.FC = () => {
             </p>
           </div>
           <div className="text-right shrink-0 text-neutral-500">
-            <p>© {new Date().getFullYear()} CyberAware CEP. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} CyberAware CEP. All rights reserved.Devloped By - Prinde Dev</p>
           </div>
         </div>
       </div>

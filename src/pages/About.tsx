@@ -127,7 +127,7 @@ export const About: React.FC = () => {
           <div className="rounded-xl border border-white/10 bg-[#080C07] p-4 text-xs text-neutral-200 space-y-1.5 font-medium">
             <div><strong className="text-neutral-400">Program:</strong> Community Engagement Program</div>
             <div><strong className="text-neutral-400">Department:</strong> Information Technology</div>
-            <div><strong className="text-neutral-400">Email:</strong> <span className="font-mono text-[#B4F437]">awareness-cep@college-domain.edu</span></div>
+            <div><strong className="text-neutral-400">Email:</strong> <span className="font-mono text-[#B4F437]">itsprincecontact@gmail.com</span></div>
             <div><strong className="text-neutral-400">Academic Year:</strong> 2026–2027</div>
           </div>
         </div>
