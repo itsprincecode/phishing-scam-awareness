@@ -33,7 +33,7 @@ export const Navbar: React.FC = () => {
     { name: 'Learn', path: '/learn', icon: BookOpen, description: 'Threat Knowledgebase' },
     { name: 'Detect', path: '/detect', icon: Search, description: 'Interactive Scenarios' },
     { name: 'Quiz', path: '/quiz', icon: HelpCircle, description: 'Test Cyber Instincts' },
-    { name: 'Responses', path: '/responses', icon: FileSpreadsheet, description: 'Live Form & Sheet Data' },
+    // { name: 'Responses', path: '/responses', icon: FileSpreadsheet, description: 'Live Form & Sheet Data' },
     { name: 'Safety', path: '/safety', icon: ShieldAlert, description: 'Emergency Checklist' },
     { name: 'Results', path: '/results', icon: Award, description: 'Certificates & Scores' },
     { name: 'About', path: '/about', icon: Info, description: 'Initiative Mission' },
